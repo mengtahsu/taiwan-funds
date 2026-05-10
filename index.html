@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Taiwan Funds - Conservative Ranking</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 20px;
+}
+.container { max-width: 1400px; margin: 0 auto; }
+h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: #f8fafc;
+}
+.subtitle {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.controls label { color: #94a3b8; font-size: 0.9rem; }
+.controls select {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+.controls select:focus { outline: none; border-color: #3b82f6; }
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.badge-etf { background: #7c3aed; color: #e9d5ff; }
+.badge-fund { background: #0d9488; color: #ccfbf1; }
+.badge-score {
+    background: #1e40af;
+    color: #bfdbfe;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.positive { color: #22c55e; font-weight: 600; }
+.negative { color: #ef4444; font-weight: 600; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+thead th {
+    background: #1e293b;
+    padding: 12px 12px;
+    text-align: right;
+    font-weight: 600;
+    color: #94a3b8;
+    border-bottom: 2px solid #334155;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    white-space: nowrap;
+}
+thead th:first-child { text-align: left; }
+thead th:nth-child(2) { text-align: left; }
+thead th:nth-child(3) { text-align: left; }
+tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #1e293b;
+    text-align: right;
+    white-space: nowrap;
+}
+tbody td:first-child { text-align: left; }
+tbody td:nth-child(2) { text-align: left; }
+tbody td:nth-child(3) { text-align: left; }
+tbody tr:hover { background: #1e293b; }
+tbody tr.hidden { display: none; }
+.fund-name {
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+.rank-num {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.rank-1 { background: #fbbf24; color: #1c1917; }
+.rank-2 { background: #94a3b8; color: #1c1917; }
+.rank-3 { background: #d97706; color: #1c1917; }
+.footer {
+    text-align: center;
+    margin-top: 24px;
+    color: #475569;
+    font-size: 0.8rem;
+}
+.filter-info {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+}
+.filter-info span { color: #22c55e; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Top Taiwan Conservative Funds</h1>
+<p class="subtitle">Filter: 3M &lt; 6M &lt; 1Y (accelerating growth) &middot; Score: 3M&times;0.4 + 6M&times;0.3 + 1Y&times;0.3 &middot; Data: MoneyDJ</p>
+<div class="controls">
+    <label for="countSelect">Show:</label>
+    <select id="countSelect" onchange="updateTable()">
+        <option value="10">Top 10</option>
+        <option value="20" selected>Top 20</option>
+    </select>
+    <label for="typeFilter">Type:</label>
+    <select id="typeFilter" onchange="updateTable()">
+        <option value="all" selected>All (ETF + Fund)</option>
+        <option value="ETF">ETF Only</option>
+        <option value="Fund">Fund Only</option>
+    </select>
+    <span id="resultCount" style="color:#94a3b8;font-size:0.85rem;"></span>
+</div>
+<p class="filter-info"><span>241</span> funds passed the conservative filter out of all domestic funds on MoneyDJ</p>
+<table>
+<thead>
+<tr>
+    <th>#</th>
+    <th>Fund Name</th>
+    <th>Company</th>
+    <th>Type</th>
+    <th>3M</th>
+    <th>6M</th>
+    <th>1Y</th>
+    <th>Weighted Score</th>
+</tr>
+</thead>
+<tbody id="fundTableBody">
+</tbody>
+</table>
+<p class="footer">Generated from MoneyDJ &middot; Data as of scrape time</p>
+</div>
+<script>
+const FUNDS = [
+  {
+    "name": "野村台灣運籌基金",
+    "company": "野村投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 95.92,
+    "m3": 70.91,
+    "m6": 120.19,
+    "y1": 309.23,
+    "y2": 272.77,
+    "y3": 484.21,
+    "y5": 513.82,
+    "score": 157.19
+  },
+  {
+    "name": "台新主流基金",
+    "company": "台新投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 95.46,
+    "m3": 80.83,
+    "m6": 127.98,
+    "y1": 284.24,
+    "y2": 259.36,
+    "y3": 401.73,
+    "y5": 421.41,
+    "score": 155.998
+  },
+  {
+    "name": "野村鴻運基金",
+    "company": "野村投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 94.17,
+    "m3": 69.87,
+    "m6": 118.04,
+    "y1": 306.77,
+    "y2": 268.37,
+    "y3": 475.56,
+    "y5": 563.91,
+    "score": 155.391
+  },
+  {
+    "name": "野村中小基金-累積S類型(台幣)",
+    "company": "野村投信",
+    "type": "Fund",
+    "category": "國內股票開放型中小型",
+    "ytd": 95.89,
+    "m3": 76.84,
+    "m6": 122.77,
+    "y1": 280.6,
+    "y2": 247.5,
+    "y3": 424.12,
+    "y5": 567.2,
+    "score": 151.747
+  },
+  {
+    "name": "國泰臺灣加權指數單日正向2倍基金",
+    "company": "國泰投信",
+    "type": "ETF",
+    "category": "國內股票開放型指數型",
+    "ytd": 96.29,
+    "m3": 65.37,
+    "m6": 113.04,
+    "y1": 301.5,
+    "y2": 251.42,
+    "y3": 512.75,
+    "y5": 475.27,
+    "score": 150.51
+  },
+  {
+    "name": "元大台灣50單日正向2倍基金 (本基金為策略交易型產品且投資具有槓桿操作風險，故本基金不適合長期持有，僅符合臺灣證券交易所訂適格條件之投資人始得交易)",
+    "company": "元大投信",
+    "type": "ETF",
+    "category": "國內股票開放型指數型",
+    "ytd": 96.06,
+    "m3": 65.22,
+    "m6": 112.36,
+    "y1": 301.19,
+    "y2": 253.93,
+    "y3": 519.98,
+    "y5": 463.93,
+    "score": 150.153
+  },
+  {
+    "name": "群益臺灣加權指數單日正向2倍基金",
+    "company": "群益投信",
+    "type": "ETF",
+    "category": "國內股票開放型指數型",
+    "ytd": 96.5,
+    "m3": 65.47,
+    "m6": 112.41,
+    "y1": 300.2,
+    "y2": 253.03,
+    "y3": 517.11,
+    "y5": 493.35,
+    "score": 149.971
+  },
+  {
+    "name": "安聯台灣科技基金",
+    "company": "安聯投信",
+    "type": "Fund",
+    "category": "國內股票開放型科技類",
+    "ytd": 89.36,
+    "m3": 67.6,
+    "m6": 124.89,
+    "y1": 283.87,
+    "y2": 281.0,
+    "y3": 509.22,
+    "y5": 600.74,
+    "score": 149.668
+  },
+  {
+    "name": "富邦臺灣加權單日正向兩倍基金",
+    "company": "富邦投信",
+    "type": "ETF",
+    "category": "國內股票開放型指數型",
+    "ytd": 95.33,
+    "m3": 64.66,
+    "m6": 111.51,
+    "y1": 298.29,
+    "y2": 248.31,
+    "y3": 506.7,
+    "y5": 478.66,
+    "score": 148.80400000000003
+  },
+  {
+    "name": "野村成長基金",
+    "company": "野村投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 91.93,
+    "m3": 70.65,
+    "m6": 113.05,
+    "y1": 283.25,
+    "y2": 245.55,
+    "y3": 444.43,
+    "y5": 469.81,
+    "score": 147.15
+  },
+  {
+    "name": "安聯台灣大壩基金-G累積型(台幣)",
+    "company": "安聯投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 88.81,
+    "m3": 66.1,
+    "m6": 114.57,
+    "y1": 271.28,
+    "y2": 252.46,
+    "y3": 444.16,
+    "y5": 430.23,
+    "score": 142.195
+  },
+  {
+    "name": "安聯台灣大壩基金-A累積型(台幣)",
+    "company": "安聯投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 88.16,
+    "m3": 65.71,
+    "m6": 113.52,
+    "y1": 267.68,
+    "y2": 245.58,
+    "y3": 428.05,
+    "y5": 404.53,
+    "score": 140.644
+  },
+  {
+    "name": "路博邁台灣5G股票基金N月配型(基金之配息來源可能為本金)",
+    "company": "路博邁投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 85.41,
+    "m3": 69.16,
+    "m6": 103.94,
+    "y1": 251.12,
+    "y2": 233.48,
+    "y3": 487.9,
+    "y5": 552.37,
+    "score": 134.18200000000002
+  },
+  {
+    "name": "路博邁台灣5G股票基金T累積型(基金之配息來源可能為本金)",
+    "company": "路博邁投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 85.41,
+    "m3": 69.17,
+    "m6": 103.94,
+    "y1": 251.08,
+    "y2": 233.51,
+    "y3": 488.25,
+    "y5": 553.21,
+    "score": 134.174
+  },
+  {
+    "name": "路博邁台灣5G股票基金T月配型(基金之配息來源可能為本金)",
+    "company": "路博邁投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 85.39,
+    "m3": 69.17,
+    "m6": 103.91,
+    "y1": 251.08,
+    "y2": 233.45,
+    "y3": 488.04,
+    "y5": 552.67,
+    "score": 134.165
+  },
+  {
+    "name": "路博邁台灣5G股票基金N累積型(基金之配息來源可能為本金)",
+    "company": "路博邁投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "ytd": 85.4,
+    "m3": 69.16,
+    "m6": 103.94,
+    "y1": 251.04,
+    "y2": 233.49,
+    "y3": 487.87,
+    "y5": 648.72,
+    "score": 134.15800000000002
+  },
+  {
+    "name": "統一新亞洲科技能源基金",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 85.98,
+    "m3": 64.55,
+    "m6": 101.89,
+    "y1": 249.63,
+    "y2": 208.6,
+    "y3": 415.43,
+    "y5": 352.03,
+    "score": 131.276
+  },
+  {
+    "name": "統一大龍印基金",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 81.81,
+    "m3": 62.14,
+    "m6": 95.13,
+    "y1": 231.15,
+    "y2": 179.7,
+    "y3": 313.51,
+    "y5": 282.1,
+    "score": 122.74
+  },
+  {
+    "name": "國泰臺韓科技基金",
+    "company": "國泰投信",
+    "type": "ETF",
+    "category": "跨國投資指數型",
+    "ytd": 85.37,
+    "m3": 56.63,
+    "m6": 101.28,
+    "y1": 229.69,
+    "y2": 207.17,
+    "y3": 332.62,
+    "y5": 255.98,
+    "score": 121.943
+  },
+  {
+    "name": "統一全球新科技基金(台幣)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 84.57,
+    "m3": 55.57,
+    "m6": 93.29,
+    "y1": 212.11,
+    "y2": 182.99,
+    "y3": 396.35,
+    "y5": 333.35,
+    "score": 113.84800000000001
+  },
+  {
+    "name": "凱基台商天下基金",
+    "company": "凱基投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 83.09,
+    "m3": 57.96,
+    "m6": 95.92,
+    "y1": 206.28,
+    "y2": 198.16,
+    "y3": 240.07,
+    "y5": 189.05,
+    "score": 113.844
+  },
+  {
+    "name": "復華全球物聯網科技基金(台幣)",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 83.57,
+    "m3": 60.33,
+    "m6": 88.55,
+    "y1": 207.41,
+    "y2": 203.83,
+    "y3": 374.33,
+    "y5": 275.24,
+    "score": 112.92
+  },
+  {
+    "name": "元大大中華TMT基金(台幣)",
+    "company": "元大投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 82.29,
+    "m3": 64.95,
+    "m6": 91.23,
+    "y1": 196.75,
+    "y2": 185.28,
+    "y3": 311.51,
+    "y5": 174.23,
+    "score": 112.374
+  },
+  {
+    "name": "復華亞太成長基金",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 88.39,
+    "m3": 63.37,
+    "m6": 91.17,
+    "y1": 198.28,
+    "y2": 153.33,
+    "y3": 197.9,
+    "y5": 112.17,
+    "score": 112.18299999999999
+  },
+  {
+    "name": "復華亞太神龍科技基金(台幣)",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 78.83,
+    "m3": 58.97,
+    "m6": 80.22,
+    "y1": 212.98,
+    "y2": 185.53,
+    "y3": 312.18,
+    "y5": 186.65,
+    "score": 111.54799999999999
+  },
+  {
+    "name": "統一全球新科技基金(美元)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 84.74,
+    "m3": 56.91,
+    "m6": 91.07,
+    "y1": 201.08,
+    "y2": 191.64,
+    "y3": 384.34,
+    "y5": 285.01,
+    "score": 110.40899999999999
+  },
+  {
+    "name": "復華全球物聯網科技基金(美元)",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 83.78,
+    "m3": 61.71,
+    "m6": 86.62,
+    "y1": 198.75,
+    "y2": 215.33,
+    "y3": 365.89,
+    "y5": 235.83,
+    "score": 110.295
+  },
+  {
+    "name": "復華亞太神龍科技基金(美元)",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 79.02,
+    "m3": 60.35,
+    "m6": 78.21,
+    "y1": 202.17,
+    "y2": 194.28,
+    "y3": 302.29,
+    "y5": 154.98,
+    "score": 108.25399999999999
+  },
+  {
+    "name": "復華中國5G通信ETF基金",
+    "company": "復華投信",
+    "type": "ETF",
+    "category": "跨國投資指數型",
+    "ytd": 42.36,
+    "m3": 41.98,
+    "m6": 57.41,
+    "y1": 229.22,
+    "y2": 244.52,
+    "y3": 260.95,
+    "y5": 229.8,
+    "score": 102.78099999999999
+  },
+  {
+    "name": "統一大中華中小基金(台幣)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 67.52,
+    "m3": 57.29,
+    "m6": 77.24,
+    "y1": 186.98,
+    "y2": 146.99,
+    "y3": 281.49,
+    "y5": 263.26,
+    "score": 102.18199999999999
+  },
+  {
+    "name": "復華華人世紀基金",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 69.82,
+    "m3": 50.02,
+    "m6": 74.26,
+    "y1": 196.95,
+    "y2": 223.57,
+    "y3": 381.66,
+    "y5": 160.19,
+    "score": 101.371
+  },
+  {
+    "name": "統一全球新科技基金(人民幣)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 79.8,
+    "m3": 53.77,
+    "m6": 82.44,
+    "y1": 183.4,
+    "y2": 174.95,
+    "y3": 376.59,
+    "y5": 305.34,
+    "score": 101.26
+  },
+  {
+    "name": "元大大中華TMT基金(人民幣)",
+    "company": "元大投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 78.14,
+    "m3": 63.46,
+    "m6": 80.6,
+    "y1": 169.49,
+    "y2": 177.18,
+    "y3": 294.69,
+    "y5": 158.63,
+    "score": 100.411
+  },
+  {
+    "name": "統一大中華中小基金(美元)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 67.72,
+    "m3": 58.63,
+    "m6": 75.21,
+    "y1": 176.85,
+    "y2": 154.53,
+    "y3": 272.19,
+    "y5": 222.59,
+    "score": 99.07
+  },
+  {
+    "name": "統一亞太基金",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 69.83,
+    "m3": 50.92,
+    "m6": 78.05,
+    "y1": 164.38,
+    "y2": 128.23,
+    "y3": 183.6,
+    "y5": 167.1,
+    "score": 93.09700000000001
+  },
+  {
+    "name": "富邦AI智能新趨勢多重資產型基金-A類型(台幣)(本基金有相當比重投資於非投資等級之高風險債券)",
+    "company": "富邦投信",
+    "type": "Fund",
+    "category": "多重資產型",
+    "ytd": 67.09,
+    "m3": 46.17,
+    "m6": 74.06,
+    "y1": 170.01,
+    "y2": 150.28,
+    "y3": 326.48,
+    "y5": 293.61,
+    "score": 91.689
+  },
+  {
+    "name": "富邦AI智能新趨勢多重資產型基金-N類型(台幣)(本基金有相當比重投資於非投資等級之高風險債券)",
+    "company": "富邦投信",
+    "type": "Fund",
+    "category": "多重資產型",
+    "ytd": 67.09,
+    "m3": 46.17,
+    "m6": 74.06,
+    "y1": 170.01,
+    "y2": 150.28,
+    "y3": 326.48,
+    "y5": 293.61,
+    "score": 91.689
+  },
+  {
+    "name": "統一大中華中小基金(人民幣)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 63.19,
+    "m3": 55.47,
+    "m6": 67.3,
+    "y1": 160.57,
+    "y2": 139.99,
+    "y3": 266.42,
+    "y5": 239.94,
+    "score": 90.549
+  },
+  {
+    "name": "國泰台灣科技龍頭ETF基金",
+    "company": "國泰投信",
+    "type": "ETF",
+    "category": "國內股票開放型指數型",
+    "ytd": 65.11,
+    "m3": 48.57,
+    "m6": 73.89,
+    "y1": 160.68,
+    "y2": 174.45,
+    "y3": 326.91,
+    "y5": 292.87,
+    "score": 89.799
+  },
+  {
+    "name": "統一全球智聯網AIoT基金(台幣)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 60.85,
+    "m3": 48.54,
+    "m6": 69.86,
+    "y1": 163.88,
+    "y2": 132.76,
+    "y3": 208.24,
+    "y5": 193.79,
+    "score": 89.53799999999998
+  },
+  {
+    "name": "富邦AI智能新趨勢多重資產型基金-A類型(美元)(本基金有相當比重投資於非投資等級之高風險債券)",
+    "company": "富邦投信",
+    "type": "Fund",
+    "category": "多重資產型",
+    "ytd": 67.24,
+    "m3": 47.42,
+    "m6": 72.04,
+    "y1": 160.43,
+    "y2": 157.93,
+    "y3": 316.05,
+    "y5": 249.73,
+    "score": 88.709
+  },
+  {
+    "name": "富邦AI智能新趨勢多重資產型基金-N類型(美元)(本基金有相當比重投資於非投資等級之高風險債券)",
+    "company": "富邦投信",
+    "type": "Fund",
+    "category": "多重資產型",
+    "ytd": 67.24,
+    "m3": 47.42,
+    "m6": 72.04,
+    "y1": 160.43,
+    "y2": 157.93,
+    "y3": 316.05,
+    "y5": 249.74,
+    "score": 88.709
+  },
+  {
+    "name": "統一全球智聯網AIoT基金(美元)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 61.0,
+    "m3": 49.85,
+    "m6": 67.87,
+    "y1": 154.52,
+    "y2": 139.81,
+    "y3": 200.59,
+    "y5": 161.06,
+    "score": 86.65700000000001
+  },
+  {
+    "name": "復華亞太平衡基金(本基金有相當比重投資於非投資等級之高風險債券)",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "股票債券平衡型跨國投資型",
+    "ytd": 64.34,
+    "m3": 51.56,
+    "m6": 74.78,
+    "y1": 143.51,
+    "y2": 118.47,
+    "y3": 146.22,
+    "y5": 96.78,
+    "score": 86.111
+  },
+  {
+    "name": "復華全球大趨勢基金(台幣)",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 75.39,
+    "m3": 56.68,
+    "m6": 81.21,
+    "y1": 126.9,
+    "y2": 118.03,
+    "y3": 182.23,
+    "y5": 133.26,
+    "score": 85.10499999999999
+  },
+  {
+    "name": "第一金亞洲科技基金",
+    "company": "第一金投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 61.26,
+    "m3": 44.0,
+    "m6": 68.88,
+    "y1": 154.7,
+    "y2": 149.26,
+    "y3": 240.02,
+    "y5": 180.96,
+    "score": 84.67399999999999
+  },
+  {
+    "name": "復華全球大趨勢基金(美元)",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "ytd": 75.48,
+    "m3": 57.99,
+    "m6": 79.3,
+    "y1": 121.06,
+    "y2": 127.04,
+    "y3": 178.28,
+    "y5": 109.53,
+    "score": 83.304
+  },
+  {
+    "name": "統一強漢基金(台幣)",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "ytd": 68.28,
+    "m3": 56.9,
+    "m6": 71.36,
+    "y1": 128.79,
+    "y2": 111.68,
+    "y3": 171.1,
+    "y5": 163.75,
+    "score": 82.80499999999999
+  },
+  {
+    "name": "國泰美國費城半導體基金",
+    "company": "國泰投信",
+    "type": "ETF",
+    "category": "跨國投資指數型",
+    "ytd": 57.13,
+    "m3": 37.22,
+    "m6": 62.15,
+    "y1": 164.04,
+    "y2": 126.19,
+    "y3": 282.29,
+    "y5": 309.93,
+    "score": 82.745
+  },
+  {
+    "name": "元大全球5G關鍵科技ETF基金",
+    "company": "元大投信",
+    "type": "ETF",
+    "category": "跨國投資指數型",
+    "ytd": 61.13,
+    "m3": 38.41,
+    "m6": 69.84,
+    "y1": 150.75,
+    "y2": 115.63,
+    "y3": 208.73,
+    "y5": 183.74,
+    "score": 81.541
+  }
+];
+
+function renderTable() {
+    const count = parseInt(document.getElementById('countSelect').value);
+    const typeFilter = document.getElementById('typeFilter').value;
+    const tbody = document.getElementById('fundTableBody');
+
+    let filtered = FUNDS;
+    if (typeFilter !== 'all') {
+        filtered = FUNDS.filter(f => f.type === typeFilter);
+    }
+    const shown = filtered.slice(0, count);
+
+    document.getElementById('resultCount').textContent =
+        `Showing ${shown.length} of ${filtered.length} matching funds`;
+
+    tbody.innerHTML = shown.map((f, i) => {
+        const rankClass = i < 3 ? 'rank-' + (i+1) : '';
+        const typeBadge = f.type === 'ETF'
+            ? '<span class="badge badge-etf">ETF</span>'
+            : '<span class="badge badge-fund">FUND</span>';
+        const m3Cls = f.m3 >= 0 ? 'positive' : 'negative';
+        const m6Cls = f.m6 >= 0 ? 'positive' : 'negative';
+        const y1Cls = f.y1 >= 0 ? 'positive' : 'negative';
+        return `
+        <tr>
+            <td><span class="rank-num ${rankClass}">${i + 1}</span></td>
+            <td><span class="fund-name" title="${f.name}">${f.name}</span></td>
+            <td>${f.company}</td>
+            <td>${typeBadge}</td>
+            <td class="${m3Cls}">${f.m3 >= 0 ? '+' : ''}${f.m3.toFixed(2)}%</td>
+            <td class="${m6Cls}">${f.m6 >= 0 ? '+' : ''}${f.m6.toFixed(2)}%</td>
+            <td class="${y1Cls}">${f.y1 >= 0 ? '+' : ''}${f.y1.toFixed(2)}%</td>
+            <td><span class="badge-score">${f.score.toFixed(2)}</span></td>
+        </tr>`;
+    }).join('');
+}
+
+function updateTable() {
+    renderTable();
+}
+
+// Initial render
+renderTable();
+</script>
+</body>
+</html>
