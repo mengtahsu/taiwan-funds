@@ -114,7 +114,7 @@ h1 {
 </div>
 <div id="resultCount"></div>
 <p class="filter-info">共 <span>241</span> 檔基金通過保守篩選</p>
-<p class="last-updated">更新時間：2026-05-10 15:44（每日自動更新）</p>
+<p class="last-updated">更新時間：2026-05-10 15:54（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
@@ -875,21 +875,21 @@ function renderCards() {
 
 renderCards();
 
-// Hit counter: global (from counter.json) + per-browser (localStorage)
+// Counter: system runtime (global) + your visits (per-browser)
 (function() {
-    var KEY = 'fund_ranker_myvisits';
-    var my = JSON.parse(localStorage.getItem(KEY) || '{"n":0}');
+    var MY_KEY = 'fund_ranker_myvisits';
+    var my = JSON.parse(localStorage.getItem(MY_KEY) || '{"n":0}');
     my.n += 1;
-    localStorage.setItem(KEY, JSON.stringify(my));
+    localStorage.setItem(MY_KEY, JSON.stringify(my));
 
     var el = document.getElementById('hitCounter');
-    fetch('counter.json')
+    fetch('counter.json?' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(c) {
         el.innerHTML = '系統運行 ' + c.runs + ' 天（自 ' + c.started + '）| 您瀏覽 ' + my.n + ' 次';
       })
       .catch(function() {
-        el.innerHTML = '您已瀏覽 ' + my.n + ' 次';
+        el.innerHTML = '您瀏覽 ' + my.n + ' 次';
       });
 })();
 </script>
