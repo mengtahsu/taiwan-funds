@@ -49,46 +49,46 @@ h1 {
 .hit-counter { text-align: center; margin-bottom: 8px; font-size: 0.75rem; color: #64748b; }
 .footer { text-align: center; margin-top: 20px; color: #334155; font-size: 0.7rem; padding-bottom: 20px; }
 
-/* === Compact row layout === */
-.fund-list { display: flex; flex-direction: column; gap: 2px; }
+/* === Two-line card layout === */
+.fund-list { display: flex; flex-direction: column; gap: 4px; }
 .fund-card {
-    display: flex; align-items: center; gap: 6px;
-    background: #111827; padding: 8px 10px; border-radius: 8px;
+    background: #111827; padding: 10px 12px; border-radius: 10px;
     border: 1px solid #1a2332; transition: background 0.15s;
-    flex-wrap: wrap;
 }
 .fund-card:active { background: #1a2332; }
+.fund-card-top {
+    display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;
+}
 .fund-card-rank {
     width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%;
-    font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
+    font-size: 0.7rem; font-weight: 800; flex-shrink: 0; margin-top: 1px;
 }
 .fund-card-rank.rank-1 { background: #fbbf24; color: #1c1917; }
 .fund-card-rank.rank-2 { background: #94a3b8; color: #1c1917; }
 .fund-card-rank.rank-3 { background: #d97706; color: #1c1917; }
 .fund-card-rank.rank-other { background: #1e293b; color: #94a3b8; }
 .fund-card-name {
-    flex: 1; min-width: 0; font-size: 0.82rem; font-weight: 600; color: #f1f5f9;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    flex: 1; font-size: 0.85rem; font-weight: 600; color: #f1f5f9;
+    line-height: 1.35;
 }
-.fund-card-company { font-size: 0.68rem; color: #475569; white-space: nowrap; }
-.fund-card-ret {
-    font-size: 0.82rem; font-weight: 700; white-space: nowrap; text-align: right; min-width: 52px;
+.fund-card-badges {
+    display: flex; gap: 6px; flex-shrink: 0; align-items: center;
 }
-.fund-card-score-badge {
-    background: #1e293b; color: #60a5fa; padding: 2px 6px; border-radius: 4px;
-    font-size: 0.72rem; font-weight: 700; white-space: nowrap;
+.fund-card-stats {
+    display: flex; align-items: center; gap: 0; padding-left: 30px;
 }
-.fund-list-header {
-    display: flex; align-items: center; gap: 6px;
-    padding: 4px 10px; font-size: 0.65rem; color: #475569;
-    margin-bottom: 2px;
+.fund-card-stat {
+    flex: 1; text-align: center;
 }
-.fund-list-hlabel { text-align: right; min-width: 52px; }
+.fund-card-stat-label { font-size: 0.6rem; color: #475569; margin-bottom: 1px; }
+.fund-card-stat-value { font-size: 0.85rem; font-weight: 700; }
+.fund-card-stat-value-label { font-size: 0.6rem; color: #475569; }
 @media (min-width: 768px) {
     body { padding: 24px; }
-    .fund-card { padding: 10px 16px; gap: 16px; }
+    .fund-list { gap: 6px; }
+    .fund-card { padding: 12px 18px; }
     .fund-card-name { font-size: 0.9rem; }
-    .fund-card-ret { font-size: 0.9rem; min-width: 60px; }
+    .fund-card-stat-value { font-size: 0.9rem; }
 }
 </style>
 </head>
@@ -114,15 +114,8 @@ h1 {
 </div>
 <div id="resultCount"></div>
 <p class="filter-info">共 <span>241</span> 檔基金通過保守篩選</p>
-<p class="last-updated">更新時間：2026-05-10 15:21（每日自動更新）</p>
+<p class="last-updated">更新時間：2026-05-10 15:25（每日自動更新）</p>
 
-<div class="fund-list-header">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span class="fund-list-hlabel">3M</span>
-    <span class="fund-list-hlabel">6M</span>
-    <span class="fund-list-hlabel">1Y</span>
-    <span class="fund-list-hlabel">得分</span>
-</div>
 <div class="fund-list" id="fundList"></div>
 
 <p class="footer">資料來源：MoneyDJ 基智網 &middot; 基金排名機器人自動產生</p>
@@ -853,15 +846,30 @@ function renderCards() {
         const sign6 = f.m6 >= 0 ? '+' : '';
         const sign1 = f.y1 >= 0 ? '+' : '';
         return '<div class="fund-card">'
+            + '<div class="fund-card-top">'
             + '<div class="fund-card-rank ' + rc + '">' + (i+1) + '</div>'
-            + '<div class="fund-card-name" title="' + f.name + '">' + f.name + '</div>'
-            + ' ' + badge
-            + '<span class="fund-card-company">' + f.company.replace('投信','') + '</span>'
-            + '<span class="fund-card-ret ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</span>'
-            + '<span class="fund-card-ret ' + m6c + '">' + sign6 + f.m6.toFixed(1) + '%</span>'
-            + '<span class="fund-card-ret ' + y1c + '">' + sign1 + f.y1.toFixed(1) + '%</span>'
-            + '<span class="fund-card-score-badge">' + f.score.toFixed(1) + '</span>'
-            + '</div>';
+            + '<div class="fund-card-name">' + f.name + '</div>'
+            + '<div class="fund-card-badges">'
+            + badge
+            + '<span class="badge-score">' + f.score.toFixed(1) + '</span>'
+            + '</div></div>'
+            + '<div class="fund-card-stats">'
+            + '<div class="fund-card-stat">'
+            + '<div class="fund-card-stat-label">' + f.company.replace('投信','') + '</div>'
+            + '</div>'
+            + '<div class="fund-card-stat">'
+            + '<div class="fund-card-stat-label">3M</div>'
+            + '<div class="fund-card-stat-value ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</div>'
+            + '</div>'
+            + '<div class="fund-card-stat">'
+            + '<div class="fund-card-stat-label">6M</div>'
+            + '<div class="fund-card-stat-value ' + m6c + '">' + sign6 + f.m6.toFixed(1) + '%</div>'
+            + '</div>'
+            + '<div class="fund-card-stat">'
+            + '<div class="fund-card-stat-label">1Y</div>'
+            + '<div class="fund-card-stat-value ' + y1c + '">' + sign1 + f.y1.toFixed(1) + '%</div>'
+            + '</div>'
+            + '</div></div>';
     }).join('');
 }
 
