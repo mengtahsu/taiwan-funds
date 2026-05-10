@@ -46,54 +46,43 @@ h1 {
 .filter-info { text-align: center; color: #94a3b8; margin: 8px 0 12px; font-size: 0.8rem; }
 .filter-info span { color: #22c55e; font-weight: 600; }
 .last-updated { text-align: center; color: #475569; font-size: 0.7rem; margin-bottom: 16px; }
-.hit-counter { text-align: center; margin-bottom: 8px; }
-.hit-counter img { height: 20px; opacity: 0.7; }
+.hit-counter { text-align: center; margin-bottom: 8px; font-size: 0.75rem; color: #64748b; }
 .footer { text-align: center; margin-top: 20px; color: #334155; font-size: 0.7rem; padding-bottom: 20px; }
 
-/* === Card layout (always used, works great on both mobile and desktop) === */
-.fund-list { display: flex; flex-direction: column; gap: 8px; }
+/* === Compact row layout === */
+.fund-list { display: flex; flex-direction: column; gap: 2px; }
 .fund-card {
-    background: #111827; border: 1px solid #1e293b; border-radius: 12px;
-    padding: 14px; transition: background 0.15s;
+    display: flex; align-items: center; gap: 6px;
+    background: #111827; padding: 8px 10px; border-radius: 8px;
+    border: 1px solid #1a2332; transition: background 0.15s;
+    flex-wrap: wrap;
 }
-.fund-card:active { background: #1e293b; }
-.fund-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.fund-card:active { background: #1a2332; }
 .fund-card-rank {
-    width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%;
-    font-size: 0.85rem; font-weight: 800; flex-shrink: 0;
+    width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%;
+    font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
 }
 .fund-card-rank.rank-1 { background: #fbbf24; color: #1c1917; }
 .fund-card-rank.rank-2 { background: #94a3b8; color: #1c1917; }
 .fund-card-rank.rank-3 { background: #d97706; color: #1c1917; }
 .fund-card-rank.rank-other { background: #1e293b; color: #94a3b8; }
-.fund-card-info { flex: 1; min-width: 0; }
 .fund-card-name {
-    font-size: 0.9rem; font-weight: 600; color: #f1f5f9; line-height: 1.3;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    flex: 1; min-width: 0; font-size: 0.82rem; font-weight: 600; color: #f1f5f9;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.fund-card-meta { display: flex; align-items: center; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
-.fund-card-company { font-size: 0.75rem; color: #64748b; }
-.fund-card-stats { display: flex; gap: 6px; flex-wrap: wrap; }
-.fund-card-stat {
-    flex: 1; min-width: 70px; background: #0f172a; border-radius: 8px;
-    padding: 8px 6px; text-align: center;
+.fund-card-company { font-size: 0.68rem; color: #475569; white-space: nowrap; }
+.fund-card-ret {
+    font-size: 0.82rem; font-weight: 700; white-space: nowrap; text-align: right; min-width: 52px;
 }
-.fund-card-stat-label { font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
-.fund-card-stat-value { font-size: 0.95rem; font-weight: 700; }
-.fund-card-score {
-    text-align: center; padding: 8px 6px; border-radius: 8px;
-    background: #1e293b; min-width: 60px;
+.fund-card-score-badge {
+    background: #1e293b; color: #60a5fa; padding: 2px 6px; border-radius: 4px;
+    font-size: 0.72rem; font-weight: 700; white-space: nowrap;
 }
-.fund-card-score-label { font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
-.fund-card-score-value { font-size: 0.95rem; font-weight: 800; color: #60a5fa; }
-
-/* Desktop-only tweaks */
 @media (min-width: 768px) {
     body { padding: 24px; }
-    .fund-list { gap: 10px; }
-    .fund-card { padding: 16px 20px; }
-    .fund-card-stats { gap: 10px; }
-    .fund-card-stat { min-width: 90px; }
+    .fund-card { padding: 10px 16px; gap: 16px; }
+    .fund-card-name { font-size: 0.9rem; }
+    .fund-card-ret { font-size: 0.9rem; min-width: 60px; }
 }
 </style>
 </head>
@@ -102,9 +91,7 @@ h1 {
 <h1>🇹🇼 台灣基金保守排名</h1>
 <p class="subtitle">篩選條件：3M &lt; 6M &lt; 1Y（穩定成長）&middot; 計分：3M&times;0.4 + 6M&times;0.3 + 1Y&times;0.3</p>
 
-<div class="hit-counter">
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmengtahsu.github.io%2Ftaiwan-funds%2F&count_bg=%23334155&title_bg=%231e293b&title=%E7%80%8F%E8%A6%BD%E6%AC%A1%E6%95%B8&edge_flat=true" alt="瀏覽次數">
-</div>
+<div class="hit-counter" id="hitCounter">瀏覽次數：載入中...</div>
 
 <div class="controls">
     <label for="countSelect">顯示</label>
@@ -121,7 +108,7 @@ h1 {
 </div>
 <div id="resultCount"></div>
 <p class="filter-info">共 <span>241</span> 檔基金通過保守篩選</p>
-<p class="last-updated">更新時間：2026-05-10 15:12（每日自動更新）</p>
+<p class="last-updated">更新時間：2026-05-10 15:19（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
@@ -845,7 +832,7 @@ function renderCards() {
         const rc = i < 3 ? 'rank-' + (i+1) : 'rank-other';
         const badge = f.type === 'ETF'
             ? '<span class="badge badge-etf">ETF</span>'
-            : '<span class="badge badge-fund">FUND</span>';
+            : '<span class="badge badge-fund">基金</span>';
         const m3c = f.m3 >= 0 ? 'positive' : 'negative';
         const m6c = f.m6 >= 0 ? 'positive' : 'negative';
         const y1c = f.y1 >= 0 ? 'positive' : 'negative';
@@ -853,23 +840,30 @@ function renderCards() {
         const sign6 = f.m6 >= 0 ? '+' : '';
         const sign1 = f.y1 >= 0 ? '+' : '';
         return '<div class="fund-card">'
-            + '<div class="fund-card-top">'
             + '<div class="fund-card-rank ' + rc + '">' + (i+1) + '</div>'
-            + '<div class="fund-card-info">'
-            + '<div class="fund-card-name">' + f.name + '</div>'
-            + '<div class="fund-card-meta">'
-            + '<span class="fund-card-company">' + f.company + '</span>' + badge
-            + '</div></div></div>'
-            + '<div class="fund-card-stats">'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-label">3M</div><div class="fund-card-stat-value ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</div></div>'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-label">6M</div><div class="fund-card-stat-value ' + m6c + '">' + sign6 + f.m6.toFixed(1) + '%</div></div>'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-label">1Y</div><div class="fund-card-stat-value ' + y1c + '">' + sign1 + f.y1.toFixed(1) + '%</div></div>'
-            + '<div class="fund-card-score"><div class="fund-card-score-label">Score</div><div class="fund-card-score-value">' + f.score.toFixed(1) + '</div></div>'
-            + '</div></div>';
+            + '<div class="fund-card-name" title="' + f.name + '">' + f.name + '</div>'
+            + ' ' + badge
+            + '<span class="fund-card-company">' + f.company.replace('投信','') + '</span>'
+            + '<span class="fund-card-ret ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</span>'
+            + '<span class="fund-card-ret ' + m6c + '">' + sign6 + f.m6.toFixed(1) + '%</span>'
+            + '<span class="fund-card-ret ' + y1c + '">' + sign1 + f.y1.toFixed(1) + '%</span>'
+            + '<span class="fund-card-score-badge">' + f.score.toFixed(1) + '</span>'
+            + '</div>';
     }).join('');
 }
 
 renderCards();
+
+// Load hit counter from counter.json (updated daily by the app)
+fetch('counter.json')
+  .then(r => r.json())
+  .then(c => {
+    document.getElementById('hitCounter').innerHTML =
+      '瀏覽次數：' + c.total.toLocaleString() + '（今日 ' + c.today + '）';
+  })
+  .catch(() => {
+    document.getElementById('hitCounter').innerHTML = '';
+  });
 </script>
 </body>
 </html>
