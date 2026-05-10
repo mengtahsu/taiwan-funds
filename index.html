@@ -3,135 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Top Taiwan Funds - Conservative Ranking</title>
+<title>Top Taiwan Conservative Funds</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
-    min-height: 100vh;
-    padding: 20px;
+    background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 20px;
 }
 .container { max-width: 1400px; margin: 0 auto; }
-h1 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    color: #f8fafc;
-}
-.subtitle {
-    text-align: center;
-    color: #94a3b8;
-    margin-bottom: 24px;
-    font-size: 0.9rem;
-}
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-}
+h1 { text-align: center; font-size: 1.8rem; margin-bottom: 8px; color: #f8fafc; }
+.subtitle { text-align: center; color: #94a3b8; margin-bottom: 24px; font-size: 0.9rem; }
+.controls { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
 .controls label { color: #94a3b8; font-size: 0.9rem; }
 .controls select {
-    background: #1e293b;
-    color: #e2e8f0;
-    border: 1px solid #334155;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    cursor: pointer;
+    background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+    padding: 8px 16px; border-radius: 8px; font-size: 0.95rem; cursor: pointer;
 }
 .controls select:focus { outline: none; border-color: #3b82f6; }
-.badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; }
 .badge-etf { background: #7c3aed; color: #e9d5ff; }
 .badge-fund { background: #0d9488; color: #ccfbf1; }
-.badge-score {
-    background: #1e40af;
-    color: #bfdbfe;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
+.badge-score { background: #1e40af; color: #bfdbfe; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
 .positive { color: #22c55e; font-weight: 600; }
 .negative { color: #ef4444; font-weight: 600; }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-}
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 thead th {
-    background: #1e293b;
-    padding: 12px 12px;
-    text-align: right;
-    font-weight: 600;
-    color: #94a3b8;
-    border-bottom: 2px solid #334155;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    white-space: nowrap;
+    background: #1e293b; padding: 12px 12px; text-align: right; font-weight: 600;
+    color: #94a3b8; border-bottom: 2px solid #334155; position: sticky; top: 0; z-index: 1; white-space: nowrap;
 }
-thead th:first-child { text-align: left; }
-thead th:nth-child(2) { text-align: left; }
-thead th:nth-child(3) { text-align: left; }
-tbody td {
-    padding: 10px 12px;
-    border-bottom: 1px solid #1e293b;
-    text-align: right;
-    white-space: nowrap;
-}
-tbody td:first-child { text-align: left; }
-tbody td:nth-child(2) { text-align: left; }
-tbody td:nth-child(3) { text-align: left; }
+thead th:first-child, thead th:nth-child(2), thead th:nth-child(3) { text-align: left; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid #1e293b; text-align: right; white-space: nowrap; }
+tbody td:first-child, tbody td:nth-child(2), tbody td:nth-child(3) { text-align: left; }
 tbody tr:hover { background: #1e293b; }
-tbody tr.hidden { display: none; }
-.fund-name {
-    max-width: 400px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: middle;
-}
-.rank-num {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-right: 8px;
-    vertical-align: middle;
-}
+.fund-name { max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: middle; }
+.rank-num { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 50%; font-size: 0.8rem; font-weight: 700; margin-right: 8px; vertical-align: middle; }
 .rank-1 { background: #fbbf24; color: #1c1917; }
 .rank-2 { background: #94a3b8; color: #1c1917; }
 .rank-3 { background: #d97706; color: #1c1917; }
-.footer {
-    text-align: center;
-    margin-top: 24px;
-    color: #475569;
-    font-size: 0.8rem;
-}
-.filter-info {
-    text-align: center;
-    color: #94a3b8;
-    margin-bottom: 12px;
-    font-size: 0.85rem;
-}
+.footer { text-align: center; margin-top: 24px; color: #475569; font-size: 0.8rem; }
+.filter-info { text-align: center; color: #94a3b8; margin-bottom: 12px; font-size: 0.85rem; }
 .filter-info span { color: #22c55e; font-weight: 600; }
+.last-updated { text-align: center; color: #64748b; font-size: 0.75rem; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -152,24 +64,18 @@ tbody tr.hidden { display: none; }
     </select>
     <span id="resultCount" style="color:#94a3b8;font-size:0.85rem;"></span>
 </div>
-<p class="filter-info"><span>241</span> funds passed the conservative filter out of all domestic funds on MoneyDJ</p>
+<p class="filter-info"><span>241</span> funds passed the conservative filter</p>
+<p class="last-updated">Last updated: 2026-05-10 14:40 (Taiwan time, auto-refreshes daily)</p>
 <table>
 <thead>
 <tr>
-    <th>#</th>
-    <th>Fund Name</th>
-    <th>Company</th>
-    <th>Type</th>
-    <th>3M</th>
-    <th>6M</th>
-    <th>1Y</th>
-    <th>Weighted Score</th>
+    <th>#</th><th>Fund Name</th><th>Company</th><th>Type</th>
+    <th>3M</th><th>6M</th><th>1Y</th><th>Weighted Score</th>
 </tr>
 </thead>
-<tbody id="fundTableBody">
-</tbody>
+<tbody id="fundTableBody"></tbody>
 </table>
-<p class="footer">Generated from MoneyDJ &middot; Data as of scrape time</p>
+<p class="footer">Data: MoneyDJ &middot; Auto-updated daily</p>
 </div>
 <script>
 const FUNDS = [
@@ -874,48 +780,33 @@ const FUNDS = [
     "score": 81.541
   }
 ];
-
 function renderTable() {
     const count = parseInt(document.getElementById('countSelect').value);
     const typeFilter = document.getElementById('typeFilter').value;
     const tbody = document.getElementById('fundTableBody');
-
     let filtered = FUNDS;
-    if (typeFilter !== 'all') {
-        filtered = FUNDS.filter(f => f.type === typeFilter);
-    }
+    if (typeFilter !== 'all') filtered = FUNDS.filter(f => f.type === typeFilter);
     const shown = filtered.slice(0, count);
-
     document.getElementById('resultCount').textContent =
-        `Showing ${shown.length} of ${filtered.length} matching funds`;
-
+        'Showing ' + shown.length + ' of ' + filtered.length + ' matching funds';
     tbody.innerHTML = shown.map((f, i) => {
-        const rankClass = i < 3 ? 'rank-' + (i+1) : '';
-        const typeBadge = f.type === 'ETF'
+        const rc = i < 3 ? 'rank-' + (i+1) : '';
+        const badge = f.type === 'ETF'
             ? '<span class="badge badge-etf">ETF</span>'
             : '<span class="badge badge-fund">FUND</span>';
-        const m3Cls = f.m3 >= 0 ? 'positive' : 'negative';
-        const m6Cls = f.m6 >= 0 ? 'positive' : 'negative';
-        const y1Cls = f.y1 >= 0 ? 'positive' : 'negative';
-        return `
-        <tr>
-            <td><span class="rank-num ${rankClass}">${i + 1}</span></td>
-            <td><span class="fund-name" title="${f.name}">${f.name}</span></td>
-            <td>${f.company}</td>
-            <td>${typeBadge}</td>
-            <td class="${m3Cls}">${f.m3 >= 0 ? '+' : ''}${f.m3.toFixed(2)}%</td>
-            <td class="${m6Cls}">${f.m6 >= 0 ? '+' : ''}${f.m6.toFixed(2)}%</td>
-            <td class="${y1Cls}">${f.y1 >= 0 ? '+' : ''}${f.y1.toFixed(2)}%</td>
-            <td><span class="badge-score">${f.score.toFixed(2)}</span></td>
-        </tr>`;
+        const mc3 = f.m3 >= 0 ? 'positive' : 'negative';
+        const mc6 = f.m6 >= 0 ? 'positive' : 'negative';
+        const mc1 = f.y1 >= 0 ? 'positive' : 'negative';
+        return '<tr><td><span class="rank-num ' + rc + '">' + (i+1) + '</span></td>'
+            + '<td><span class="fund-name" title="' + f.name + '">' + f.name + '</span></td>'
+            + '<td>' + f.company + '</td><td>' + badge + '</td>'
+            + '<td class="' + mc3 + '">' + (f.m3>=0?'+':'') + f.m3.toFixed(2) + '%</td>'
+            + '<td class="' + mc6 + '">' + (f.m6>=0?'+':'') + f.m6.toFixed(2) + '%</td>'
+            + '<td class="' + mc1 + '">' + (f.y1>=0?'+':'') + f.y1.toFixed(2) + '%</td>'
+            + '<td><span class="badge-score">' + f.score.toFixed(2) + '</span></td></tr>';
     }).join('');
 }
-
-function updateTable() {
-    renderTable();
-}
-
-// Initial render
+function updateTable() { renderTable(); }
 renderTable();
 </script>
 </body>
