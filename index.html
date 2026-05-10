@@ -114,7 +114,7 @@ h1 {
 </div>
 <div id="resultCount"></div>
 <p class="filter-info">共 <span>241</span> 檔基金通過保守篩選</p>
-<p class="last-updated">更新時間：2026-05-10 15:27（每日自動更新）</p>
+<p class="last-updated">更新時間：2026-05-10 15:33（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
@@ -875,16 +875,23 @@ function renderCards() {
 
 renderCards();
 
-// Load hit counter from counter.json (updated daily by the app)
-fetch('counter.json')
-  .then(r => r.json())
-  .then(c => {
-    document.getElementById('hitCounter').innerHTML =
-      '瀏覽次數：' + c.total.toLocaleString() + '（今日 ' + c.today + '）';
-  })
-  .catch(() => {
-    document.getElementById('hitCounter').innerHTML = '';
-  });
+// Hit counter: global (from counter.json) + per-browser (localStorage)
+(function() {
+    var KEY = 'fund_ranker_myvisits';
+    var my = JSON.parse(localStorage.getItem(KEY) || '{"n":0}');
+    my.n += 1;
+    localStorage.setItem(KEY, JSON.stringify(my));
+
+    var el = document.getElementById('hitCounter');
+    fetch('counter.json')
+      .then(function(r) { return r.json(); })
+      .then(function(c) {
+        el.innerHTML = '系統運行 ' + c.runs + ' 天（自 ' + c.started + '）| 您瀏覽 ' + my.n + ' 次';
+      })
+      .catch(function() {
+        el.innerHTML = '您已瀏覽 ' + my.n + ' 次';
+      });
+})();
 </script>
 </body>
 </html>
