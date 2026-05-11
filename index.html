@@ -114,7 +114,7 @@ h1 {
 </div>
 <div id="resultCount"></div>
 <p class="last-updated">共 <span>241</span> 檔基金</p>
-<p class="last-updated">更新時間：2026-05-11 09:07（每日自動更新）</p>
+<p class="last-updated">更新時間：2026-05-11 14:48（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
@@ -875,7 +875,7 @@ renderCards();
     fetch('counter.json?' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(c) {
-        el.innerHTML = '系統運行 ' + c.runs + ' 天（自 ' + c.started + '）| 您瀏覽 ' + my.n + ' 次';
+        el.innerHTML = '🌐 ' + (c.page_views || 0) + ' 次瀏覽（' + (c.unique_visitors || 0) + ' 位訪客）| 您瀏覽 ' + my.n + ' 次';
       })
       .catch(function() {
         el.innerHTML = '您瀏覽 ' + my.n + ' 次';
