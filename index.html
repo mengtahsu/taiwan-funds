@@ -94,7 +94,7 @@ h1 {
 <body>
 <div class="container">
 <h1>🇹🇼 台灣基金保守排名</h1>
-<p class="subtitle">篩選條件：3M &lt; 6M &lt; 1Y（穩定成長）&middot; 計分：3M&times;0.4 + 6M&times;0.3 + 1Y&times;0.3</p>
+<p class="subtitle">台灣境內基金績效排名</p>
 
 <div class="hit-counter" id="hitCounter">瀏覽次數：載入中...</div>
 
@@ -103,6 +103,7 @@ h1 {
     <select id="countSelect" onchange="renderCards()">
         <option value="10">前 10 名</option>
         <option value="20" selected>前 20 名</option>
+        <option value="40">前 40 名</option>
     </select>
     <label for="typeFilter">類型</label>
     <select id="typeFilter" onchange="renderCards()">
@@ -112,8 +113,8 @@ h1 {
     </select>
 </div>
 <div id="resultCount"></div>
-<p class="filter-info">共 <span>241</span> 檔基金通過保守篩選</p>
-<p class="last-updated">更新時間：2026-05-11 08:23（每日自動更新）</p>
+<p class="last-updated">共 <span>241</span> 檔基金</p>
+<p class="last-updated">更新時間：2026-05-11 08:45（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
