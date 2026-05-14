@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Top Taiwan Conservative Funds</title>
+<title>台灣基金保守排名</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -49,7 +49,7 @@ h1 {
 .hit-counter { text-align: center; margin-bottom: 8px; font-size: 0.75rem; color: #64748b; }
 .footer { text-align: center; margin-top: 20px; color: #334155; font-size: 0.7rem; padding-bottom: 20px; }
 
-/* === Two-line card layout === */
+/* Two-line card layout */
 .fund-list { display: flex; flex-direction: column; gap: 4px; }
 .fund-card {
     background: #111827; padding: 10px 12px; border-radius: 10px;
@@ -71,11 +71,6 @@ h1 {
     flex: 1; font-size: 0.85rem; font-weight: 600; color: #f1f5f9;
     line-height: 1.35;
 }
-.fund-card-name a {
-    color: #93c5fd; text-decoration: none;
-}
-.fund-card-name a:hover { text-decoration: underline; }
-.fund-card-name a:visited { color: #a5b4fc; }
 .fund-card-badges {
     display: flex; gap: 6px; flex-shrink: 0; align-items: center;
 }
@@ -87,7 +82,6 @@ h1 {
 }
 .fund-card-stat-label { font-size: 0.6rem; color: #475569; margin-bottom: 1px; }
 .fund-card-stat-value { font-size: 0.85rem; font-weight: 700; }
-.fund-card-stat-value-label { font-size: 0.6rem; color: #475569; }
 @media (min-width: 768px) {
     body { padding: 24px; }
     .fund-list { gap: 6px; }
@@ -120,7 +114,7 @@ h1 {
 </div>
 <div id="resultCount"></div>
 <p class="last-updated">共 <span>221</span> 檔基金</p>
-<p class="last-updated">更新時間：2026-05-14 22:02（每日自動更新）</p>
+<p class="last-updated">更新時間：2026-05-14 22:05（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
@@ -133,7 +127,6 @@ const FUNDS = [
     "company": "街口投信",
     "type": "Fund",
     "category": "期貨型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACCH26",
     "ytd": 237.66,
     "m3": 158.28,
     "m6": 224.19,
@@ -148,7 +141,6 @@ const FUNDS = [
     "company": "施羅德投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACES10",
     "ytd": 0.0,
     "m3": 78.11,
     "m6": 151.94,
@@ -163,7 +155,6 @@ const FUNDS = [
     "company": "台新投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACTC10",
     "ytd": 0.0,
     "m3": 73.28,
     "m6": 136.77,
@@ -178,7 +169,6 @@ const FUNDS = [
     "company": "台新投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACTT06",
     "ytd": 103.45,
     "m3": 73.91,
     "m6": 131.26,
@@ -193,7 +183,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT11",
     "ytd": 0.0,
     "m3": 68.73,
     "m6": 145.55,
@@ -208,7 +197,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS03",
     "ytd": 0.0,
     "m3": 76.07,
     "m6": 117.29,
@@ -223,7 +211,6 @@ const FUNDS = [
     "company": "摩根投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACJF76",
     "ytd": 0.0,
     "m3": 69.31,
     "m6": 126.48,
@@ -238,7 +225,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT04",
     "ytd": 0.0,
     "m3": 65.44,
     "m6": 135.3,
@@ -253,7 +239,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS06",
     "ytd": 0.0,
     "m3": 72.53,
     "m6": 111.6,
@@ -268,7 +253,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=AC0017",
     "ytd": 0.0,
     "m3": 64.97,
     "m6": 135.52,
@@ -283,7 +267,6 @@ const FUNDS = [
     "company": "玉山投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACML07",
     "ytd": 0.0,
     "m3": 64.6,
     "m6": 133.93,
@@ -298,7 +281,6 @@ const FUNDS = [
     "company": "野村投信",
     "type": "Fund",
     "category": "國內股票開放型中小型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACKH174",
     "ytd": 99.59,
     "m3": 67.23,
     "m6": 120.29,
@@ -313,7 +295,6 @@ const FUNDS = [
     "company": "富邦投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACJS13",
     "ytd": 0.0,
     "m3": 67.88,
     "m6": 119.37,
@@ -328,7 +309,6 @@ const FUNDS = [
     "company": "安聯投信",
     "type": "Fund",
     "category": "國內股票開放型科技類",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD04",
     "ytd": 96.94,
     "m3": 63.82,
     "m6": 126.08,
@@ -343,7 +323,6 @@ const FUNDS = [
     "company": "野村投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACIC08",
     "ytd": 0.0,
     "m3": 66.4,
     "m6": 121.65,
@@ -358,7 +337,6 @@ const FUNDS = [
     "company": "野村投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACKH03",
     "ytd": 99.69,
     "m3": 63.47,
     "m6": 117.12,
@@ -373,7 +351,6 @@ const FUNDS = [
     "company": "野村投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=AC0001",
     "ytd": 98.54,
     "m3": 62.69,
     "m6": 115.63,
@@ -388,7 +365,6 @@ const FUNDS = [
     "company": "台新投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACSH03",
     "ytd": 0.0,
     "m3": 62.61,
     "m6": 128.74,
@@ -403,7 +379,6 @@ const FUNDS = [
     "company": "安聯投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD102",
     "ytd": 96.8,
     "m3": 61.99,
     "m6": 120.35,
@@ -418,7 +393,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT02",
     "ytd": 0.0,
     "m3": 61.57,
     "m6": 124.28,
@@ -433,7 +407,6 @@ const FUNDS = [
     "company": "安聯投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD01",
     "ytd": 96.09,
     "m3": 61.59,
     "m6": 119.28,
@@ -448,7 +421,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "跨國投資股票型區域型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS26",
     "ytd": 93.94,
     "m3": 65.78,
     "m6": 106.45,
@@ -463,7 +435,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT03",
     "ytd": 0.0,
     "m3": 61.6,
     "m6": 119.27,
@@ -478,7 +449,6 @@ const FUNDS = [
     "company": "台新投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACTS09",
     "ytd": 0.0,
     "m3": 65.17,
     "m6": 116.51,
@@ -493,7 +463,6 @@ const FUNDS = [
     "company": "野村投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACIC04",
     "ytd": 96.39,
     "m3": 61.75,
     "m6": 111.23,
@@ -508,7 +477,6 @@ const FUNDS = [
     "company": "野村投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACIC01",
     "ytd": 0.0,
     "m3": 64.42,
     "m6": 109.39,
@@ -523,7 +491,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT09",
     "ytd": 0.0,
     "m3": 60.05,
     "m6": 119.2,
@@ -538,7 +505,6 @@ const FUNDS = [
     "company": "復華投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACFH03",
     "ytd": 0.0,
     "m3": 63.99,
     "m6": 104.74,
@@ -553,7 +519,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "跨國投資股票型區域型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS24",
     "ytd": 89.86,
     "m3": 65.74,
     "m6": 99.36,
@@ -568,7 +533,6 @@ const FUNDS = [
     "company": "路博邁投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB01",
     "ytd": 91.69,
     "m3": 62.37,
     "m6": 105.33,
@@ -583,7 +547,6 @@ const FUNDS = [
     "company": "路博邁投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB45",
     "ytd": 91.69,
     "m3": 62.37,
     "m6": 105.3,
@@ -598,7 +561,6 @@ const FUNDS = [
     "company": "路博邁投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB46",
     "ytd": 91.69,
     "m3": 62.36,
     "m6": 105.32,
@@ -613,7 +575,6 @@ const FUNDS = [
     "company": "路博邁投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB02",
     "ytd": 91.69,
     "m3": 62.34,
     "m6": 105.31,
@@ -628,7 +589,6 @@ const FUNDS = [
     "company": "凱基投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACKG15",
     "ytd": 0.0,
     "m3": 59.99,
     "m6": 112.06,
@@ -643,7 +603,6 @@ const FUNDS = [
     "company": "復華投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACFH01",
     "ytd": 0.0,
     "m3": 62.21,
     "m6": 102.74,
@@ -658,7 +617,6 @@ const FUNDS = [
     "company": "國泰投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACCY14",
     "ytd": 0.0,
     "m3": 62.02,
     "m6": 102.09,
@@ -673,7 +631,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS01",
     "ytd": 0.0,
     "m3": 61.76,
     "m6": 100.75,
@@ -688,7 +645,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS09",
     "ytd": 0.0,
     "m3": 62.62,
     "m6": 98.92,
@@ -703,7 +659,6 @@ const FUNDS = [
     "company": "安聯投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD19",
     "ytd": 0.0,
     "m3": 57.5,
     "m6": 113.1,
@@ -718,7 +673,6 @@ const FUNDS = [
     "company": "復華投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACFH08",
     "ytd": 0.0,
     "m3": 60.19,
     "m6": 106.01,
@@ -733,7 +687,6 @@ const FUNDS = [
     "company": "第一金投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNC16",
     "ytd": 0.0,
     "m3": 58.36,
     "m6": 106.17,
@@ -748,7 +701,6 @@ const FUNDS = [
     "company": "野村投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACKH07",
     "ytd": 0.0,
     "m3": 56.96,
     "m6": 105.06,
@@ -763,7 +715,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS10",
     "ytd": 0.0,
     "m3": 60.49,
     "m6": 94.58,
@@ -778,7 +729,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "跨國投資股票型區域型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT61",
     "ytd": 87.49,
     "m3": 61.52,
     "m6": 94.65,
@@ -793,7 +743,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "跨國投資股票型全球市場",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS38",
     "ytd": 92.88,
     "m3": 58.49,
     "m6": 98.16,
@@ -808,7 +757,6 @@ const FUNDS = [
     "company": "瀚亞投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACCP03",
     "ytd": 0.0,
     "m3": 60.75,
     "m6": 97.48,
@@ -823,7 +771,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT162",
     "ytd": 0.0,
     "m3": 57.3,
     "m6": 114.39,
@@ -838,7 +785,6 @@ const FUNDS = [
     "company": "元大投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT161",
     "ytd": 0.0,
     "m3": 57.27,
     "m6": 114.17,
@@ -853,7 +799,6 @@ const FUNDS = [
     "company": "復華投信",
     "type": "Fund",
     "category": "跨國投資股票型全球市場",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACFH67",
     "ytd": 91.52,
     "m3": 58.84,
     "m6": 91.31,
@@ -868,7 +813,6 @@ const FUNDS = [
     "company": "統一投信",
     "type": "Fund",
     "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS02",
     "ytd": 0.0,
     "m3": 56.1,
     "m6": 98.01,
@@ -904,27 +848,16 @@ function renderCards() {
         return '<div class="fund-card">'
             + '<div class="fund-card-top">'
             + '<div class="fund-card-rank ' + rc + '">' + (i+1) + '</div>'
-            + '<div class="fund-card-name"><a href="' + f.url + '" target="_blank" rel="noopener">' + f.name + '</a></div>'
+            + '<div class="fund-card-name">' + f.name + '</div>'
             + '<div class="fund-card-badges">'
             + badge
             + '<span class="badge-score">' + f.score.toFixed(1) + '</span>'
             + '</div></div>'
             + '<div class="fund-card-stats">'
-            + '<div class="fund-card-stat">'
-            + '<div class="fund-card-stat-label">' + f.company.replace('投信','') + '</div>'
-            + '</div>'
-            + '<div class="fund-card-stat">'
-            + '<div class="fund-card-stat-label">3M</div>'
-            + '<div class="fund-card-stat-value ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</div>'
-            + '</div>'
-            + '<div class="fund-card-stat">'
-            + '<div class="fund-card-stat-label">6M</div>'
-            + '<div class="fund-card-stat-value ' + m6c + '">' + sign6 + f.m6.toFixed(1) + '%</div>'
-            + '</div>'
-            + '<div class="fund-card-stat">'
-            + '<div class="fund-card-stat-label">1Y</div>'
-            + '<div class="fund-card-stat-value ' + y1c + '">' + sign1 + f.y1.toFixed(1) + '%</div>'
-            + '</div>'
+            + '<div class="fund-card-stat"><div class="fund-card-stat-label">' + f.company.replace('投信','') + '</div></div>'
+            + '<div class="fund-card-stat"><div class="fund-card-stat-label">3M</div><div class="fund-card-stat-value ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</div></div>'
+            + '<div class="fund-card-stat"><div class="fund-card-stat-label">6M</div><div class="fund-card-stat-value ' + m6c + '">' + sign6 + f.m6.toFixed(1) + '%</div></div>'
+            + '<div class="fund-card-stat"><div class="fund-card-stat-label">1Y</div><div class="fund-card-stat-value ' + y1c + '">' + sign1 + f.y1.toFixed(1) + '%</div></div>'
             + '</div></div>';
     }).join('');
 }
