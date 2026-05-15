@@ -119,8 +119,8 @@ h1 {
     </select>
 </div>
 <div id="resultCount"></div>
-<p class="last-updated">共 <span>221</span> 檔基金</p>
-<p class="last-updated">更新時間：2026-05-14 22:32（每日自動更新）</p>
+<p class="last-updated">共 <span>224</span> 檔基金</p>
+<p class="last-updated">更新時間：2026-05-15 09:07（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
@@ -128,21 +128,6 @@ h1 {
 </div>
 <script>
 const FUNDS = [
-  {
-    "name": "街口標普高盛布蘭特原油ER單日正向2倍指數期貨基金",
-    "company": "街口投信",
-    "type": "Fund",
-    "category": "期貨型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACCH26",
-    "ytd": 237.66,
-    "m3": 158.28,
-    "m6": 224.19,
-    "y1": 227.41,
-    "y2": 105.02,
-    "y3": 181.72,
-    "y5": 325.13,
-    "score": 349.837
-  },
   {
     "name": "施羅德台灣樂活中小基金-A類型",
     "company": "施羅德投信",
@@ -159,6 +144,21 @@ const FUNDS = [
     "score": 202.71800000000002
   },
   {
+    "name": "台新主流基金",
+    "company": "台新投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACTT06",
+    "ytd": 103.93,
+    "m3": 74.31,
+    "m6": 135.32,
+    "y1": 272.01,
+    "y2": 280.35,
+    "y3": 429.79,
+    "y5": 504.08,
+    "score": 192.794
+  },
+  {
     "name": "台新中國通基金",
     "company": "台新投信",
     "type": "Fund",
@@ -172,21 +172,6 @@ const FUNDS = [
     "y3": 405.03,
     "y5": 498.15,
     "score": 192.157
-  },
-  {
-    "name": "台新主流基金",
-    "company": "台新投信",
-    "type": "Fund",
-    "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACTT06",
-    "ytd": 103.45,
-    "m3": 73.91,
-    "m6": 131.26,
-    "y1": 281.75,
-    "y2": 287.32,
-    "y3": 428.55,
-    "y5": 509.21,
-    "score": 191.544
   },
   {
     "name": "元大新主流基金",
@@ -217,6 +202,21 @@ const FUNDS = [
     "y3": 376.35,
     "y5": 432.65,
     "score": 185.964
+  },
+  {
+    "name": "安聯台灣科技基金",
+    "company": "安聯投信",
+    "type": "Fund",
+    "category": "國內股票開放型科技類",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD04",
+    "ytd": 101.73,
+    "m3": 67.81,
+    "m6": 136.78,
+    "y1": 283.37,
+    "y2": 303.38,
+    "y3": 559.05,
+    "y5": 766.02,
+    "score": 184.764
   },
   {
     "name": "摩根新興科技基金-一般型",
@@ -299,14 +299,29 @@ const FUNDS = [
     "type": "Fund",
     "category": "國內股票開放型中小型",
     "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACKH174",
-    "ytd": 99.59,
-    "m3": 67.23,
-    "m6": 120.29,
-    "y1": 272.49,
-    "y2": 262.56,
-    "y3": 439.52,
-    "y5": 661.25,
-    "score": 176.21
+    "ytd": 99.12,
+    "m3": 66.84,
+    "m6": 122.87,
+    "y1": 258.84,
+    "y2": 252.31,
+    "y3": 438.25,
+    "y5": 655.23,
+    "score": 175.29200000000003
+  },
+  {
+    "name": "安聯台灣大壩基金-G累積型",
+    "company": "安聯投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD102",
+    "ytd": 100.0,
+    "m3": 64.62,
+    "m6": 127.99,
+    "y1": 267.37,
+    "y2": 274.85,
+    "y3": 486.24,
+    "y5": 546.12,
+    "score": 174.863
   },
   {
     "name": "富邦新台商基金",
@@ -322,21 +337,6 @@ const FUNDS = [
     "y3": 504.68,
     "y5": 595.47,
     "score": 174.737
-  },
-  {
-    "name": "安聯台灣科技基金",
-    "company": "安聯投信",
-    "type": "Fund",
-    "category": "國內股票開放型科技類",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD04",
-    "ytd": 96.94,
-    "m3": 63.82,
-    "m6": 126.08,
-    "y1": 285.11,
-    "y2": 302.92,
-    "y3": 543.41,
-    "y5": 753.42,
-    "score": 174.673
   },
   {
     "name": "野村中小基金-累積型",
@@ -359,14 +359,29 @@ const FUNDS = [
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
     "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACKH03",
-    "ytd": 99.69,
-    "m3": 63.47,
-    "m6": 117.12,
-    "y1": 300.99,
-    "y2": 292.05,
-    "y3": 502.51,
-    "y5": 618.88,
-    "score": 172.152
+    "ytd": 99.96,
+    "m3": 63.69,
+    "m6": 122.77,
+    "y1": 288.6,
+    "y2": 283.52,
+    "y3": 503.33,
+    "y5": 617.67,
+    "score": 173.50300000000001
+  },
+  {
+    "name": "安聯台灣大壩基金-A累積型",
+    "company": "安聯投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD01",
+    "ytd": 99.28,
+    "m3": 64.22,
+    "m6": 126.89,
+    "y1": 263.81,
+    "y2": 267.44,
+    "y3": 469.06,
+    "y5": 515.0,
+    "score": 173.467
   },
   {
     "name": "野村鴻運基金",
@@ -374,14 +389,44 @@ const FUNDS = [
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
     "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=AC0001",
-    "ytd": 98.54,
-    "m3": 62.69,
-    "m6": 115.63,
-    "y1": 299.75,
-    "y2": 288.39,
-    "y3": 495.71,
-    "y5": 660.46,
-    "score": 170.262
+    "ytd": 99.17,
+    "m3": 63.21,
+    "m6": 121.74,
+    "y1": 288.14,
+    "y2": 280.65,
+    "y3": 497.6,
+    "y5": 658.87,
+    "score": 172.325
+  },
+  {
+    "name": "統一新亞洲科技能源基金",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS26",
+    "ytd": 96.39,
+    "m3": 67.87,
+    "m6": 110.96,
+    "y1": 257.34,
+    "y2": 227.88,
+    "y3": 445.52,
+    "y5": 394.08,
+    "score": 171.92300000000003
+  },
+  {
+    "name": "統一大龍印基金",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS24",
+    "ytd": 93.67,
+    "m3": 69.07,
+    "m6": 108.62,
+    "y1": 235.63,
+    "y2": 205.49,
+    "y3": 344.15,
+    "y5": 326.04,
+    "score": 170.61599999999999
   },
   {
     "name": "台新2000高科技基金-A不配息",
@@ -399,21 +444,6 @@ const FUNDS = [
     "score": 169.728
   },
   {
-    "name": "安聯台灣大壩基金-G累積型",
-    "company": "安聯投信",
-    "type": "Fund",
-    "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD102",
-    "ytd": 96.8,
-    "m3": 61.99,
-    "m6": 120.35,
-    "y1": 272.5,
-    "y2": 276.93,
-    "y3": 476.86,
-    "y5": 530.25,
-    "score": 168.375
-  },
-  {
     "name": "元大多福基金",
     "company": "元大投信",
     "type": "Fund",
@@ -429,49 +459,79 @@ const FUNDS = [
     "score": 167.23700000000002
   },
   {
-    "name": "安聯台灣大壩基金-A累積型",
-    "company": "安聯投信",
+    "name": "路博邁台灣5G股票基金N月配型",
+    "company": "路博邁投信",
     "type": "Fund",
     "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACDD01",
-    "ytd": 96.09,
-    "m3": 61.59,
-    "m6": 119.28,
-    "y1": 268.84,
-    "y2": 269.56,
-    "y3": 459.96,
-    "y5": 499.87,
-    "score": 166.981
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB46",
+    "ytd": 94.65,
+    "m3": 64.86,
+    "m6": 112.71,
+    "y1": 248.56,
+    "y2": 245.19,
+    "y3": 525.22,
+    "y5": 648.96,
+    "score": 167.23
   },
   {
-    "name": "統一新亞洲科技能源基金",
-    "company": "統一投信",
+    "name": "路博邁台灣5G股票基金N累積型",
+    "company": "路博邁投信",
     "type": "Fund",
-    "category": "跨國投資股票型區域型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS26",
-    "ytd": 93.94,
-    "m3": 65.78,
-    "m6": 106.45,
-    "y1": 256.88,
-    "y2": 221.23,
-    "y3": 438.72,
-    "y5": 381.79,
-    "score": 166.938
+    "category": "國內股票開放型一般股票型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB45",
+    "ytd": 94.64,
+    "m3": 64.86,
+    "m6": 112.68,
+    "y1": 248.58,
+    "y2": 245.27,
+    "y3": 524.88,
+    "y5": 686.02,
+    "score": 167.22
   },
   {
-    "name": "元大多多基金",
-    "company": "元大投信",
+    "name": "路博邁台灣5G股票基金T累積型",
+    "company": "路博邁投信",
     "type": "Fund",
-    "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT03",
-    "ytd": 0.0,
-    "m3": 61.6,
-    "m6": 119.27,
-    "y1": 260.69,
-    "y2": 276.25,
-    "y3": 361.75,
-    "y5": 353.27,
-    "score": 166.17700000000002
+    "category": "國內股票開放型一般股票型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB01",
+    "ytd": 94.63,
+    "m3": 64.86,
+    "m6": 112.67,
+    "y1": 248.51,
+    "y2": 245.24,
+    "y3": 525.3,
+    "y5": 649.89,
+    "score": 167.209
+  },
+  {
+    "name": "路博邁台灣5G股票基金T月配型",
+    "company": "路博邁投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB02",
+    "ytd": 94.62,
+    "m3": 64.82,
+    "m6": 112.64,
+    "y1": 248.48,
+    "y2": 245.22,
+    "y3": 525.1,
+    "y5": 648.81,
+    "score": 167.13400000000001
+  },
+  {
+    "name": "野村成長基金",
+    "company": "野村投信",
+    "type": "Fund",
+    "category": "國內股票開放型一般股票型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACIC04",
+    "ytd": 97.09,
+    "m3": 62.33,
+    "m6": 116.27,
+    "y1": 269.42,
+    "y2": 256.93,
+    "y3": 463.89,
+    "y5": 555.73,
+    "score": 166.94500000000002
   },
   {
     "name": "新光創新科技基金",
@@ -487,21 +547,6 @@ const FUNDS = [
     "y3": 293.94,
     "y5": 387.75,
     "score": 166.109
-  },
-  {
-    "name": "野村成長基金",
-    "company": "野村投信",
-    "type": "Fund",
-    "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACIC04",
-    "ytd": 96.39,
-    "m3": 61.75,
-    "m6": 111.23,
-    "y1": 278.87,
-    "y2": 263.76,
-    "y3": 461.88,
-    "y5": 556.89,
-    "score": 165.00400000000002
   },
   {
     "name": "野村優質基金-累積型",
@@ -549,81 +594,6 @@ const FUNDS = [
     "score": 161.912
   },
   {
-    "name": "統一大龍印基金",
-    "company": "統一投信",
-    "type": "Fund",
-    "category": "跨國投資股票型區域型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS24",
-    "ytd": 89.86,
-    "m3": 65.74,
-    "m6": 99.36,
-    "y1": 232.13,
-    "y2": 197.03,
-    "y3": 335.39,
-    "y5": 312.11,
-    "score": 161.56699999999998
-  },
-  {
-    "name": "路博邁台灣5G股票基金T累積型",
-    "company": "路博邁投信",
-    "type": "Fund",
-    "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB01",
-    "ytd": 91.69,
-    "m3": 62.37,
-    "m6": 105.33,
-    "y1": 252.52,
-    "y2": 246.78,
-    "y3": 515.86,
-    "y5": 640.8,
-    "score": 160.93900000000002
-  },
-  {
-    "name": "路博邁台灣5G股票基金N累積型",
-    "company": "路博邁投信",
-    "type": "Fund",
-    "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB45",
-    "ytd": 91.69,
-    "m3": 62.37,
-    "m6": 105.3,
-    "y1": 252.53,
-    "y2": 246.78,
-    "y3": 515.41,
-    "y5": 674.11,
-    "score": 160.928
-  },
-  {
-    "name": "路博邁台灣5G股票基金N月配型",
-    "company": "路博邁投信",
-    "type": "Fund",
-    "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB46",
-    "ytd": 91.69,
-    "m3": 62.36,
-    "m6": 105.32,
-    "y1": 252.54,
-    "y2": 246.74,
-    "y3": 515.71,
-    "y5": 639.83,
-    "score": 160.922
-  },
-  {
-    "name": "路博邁台灣5G股票基金T月配型",
-    "company": "路博邁投信",
-    "type": "Fund",
-    "category": "國內股票開放型一般股票型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACNB02",
-    "ytd": 91.69,
-    "m3": 62.34,
-    "m6": 105.31,
-    "y1": 252.55,
-    "y2": 246.85,
-    "y3": 515.69,
-    "y5": 640.26,
-    "score": 160.889
-  },
-  {
     "name": "凱基台灣精五門基金A類型",
     "company": "凱基投信",
     "type": "Fund",
@@ -654,6 +624,21 @@ const FUNDS = [
     "score": 157.55
   },
   {
+    "name": "統一全球新科技基金",
+    "company": "統一投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS38",
+    "ytd": 96.46,
+    "m3": 61.42,
+    "m6": 108.57,
+    "y1": 217.66,
+    "y2": 200.59,
+    "y3": 424.86,
+    "y5": 397.43,
+    "score": 157.32399999999998
+  },
+  {
     "name": "國泰小龍基金",
     "company": "國泰投信",
     "type": "Fund",
@@ -667,6 +652,21 @@ const FUNDS = [
     "y3": 390.41,
     "y5": 452.67,
     "score": 157.29700000000003
+  },
+  {
+    "name": "復華全球物聯網科技基金",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型全球市場",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACFH67",
+    "ytd": 96.15,
+    "m3": 62.68,
+    "m6": 104.62,
+    "y1": 212.13,
+    "y2": 221.83,
+    "y3": 401.97,
+    "y5": 332.7,
+    "score": 157.081
   },
   {
     "name": "統一全天候基金",
@@ -729,6 +729,21 @@ const FUNDS = [
     "score": 154.849
   },
   {
+    "name": "復華亞太神龍科技基金",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACFH73",
+    "ytd": 91.67,
+    "m3": 62.5,
+    "m6": 95.29,
+    "y1": 217.75,
+    "y2": 205.18,
+    "y3": 338.59,
+    "y5": 230.0,
+    "score": 153.64100000000002
+  },
+  {
     "name": "第一金電子基金",
     "company": "第一金投信",
     "type": "Fund",
@@ -742,6 +757,36 @@ const FUNDS = [
     "y3": 406.77,
     "y5": 387.74,
     "score": 153.16899999999998
+  },
+  {
+    "name": "國泰臺韓科技基金",
+    "company": "國泰投信",
+    "type": "ETF",
+    "category": "跨國投資指數型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACTR37",
+    "ytd": 94.67,
+    "m3": 55.62,
+    "m6": 114.79,
+    "y1": 227.44,
+    "y2": 219.89,
+    "y3": 362.0,
+    "y5": 302.6,
+    "score": 152.09
+  },
+  {
+    "name": "復華亞太成長基金",
+    "company": "復華投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACFH18",
+    "ytd": 97.06,
+    "m3": 60.14,
+    "m6": 100.78,
+    "y1": 201.42,
+    "y2": 166.58,
+    "y3": 212.0,
+    "y5": 136.07,
+    "score": 150.66400000000002
   },
   {
     "name": "野村積極成長基金",
@@ -774,36 +819,6 @@ const FUNDS = [
     "score": 150.231
   },
   {
-    "name": "元大大中華TMT基金",
-    "company": "元大投信",
-    "type": "Fund",
-    "category": "跨國投資股票型區域型",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT61",
-    "ytd": 87.49,
-    "m3": 61.52,
-    "m6": 94.65,
-    "y1": 195.61,
-    "y2": 193.66,
-    "y3": 329.88,
-    "y5": 188.21,
-    "score": 149.70100000000002
-  },
-  {
-    "name": "統一全球新科技基金",
-    "company": "統一投信",
-    "type": "Fund",
-    "category": "跨國投資股票型全球市場",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS38",
-    "ytd": 92.88,
-    "m3": 58.49,
-    "m6": 98.16,
-    "y1": 217.82,
-    "y2": 193.12,
-    "y3": 415.31,
-    "y5": 386.29,
-    "score": 148.781
-  },
-  {
     "name": "瀚亞高科技基金",
     "company": "瀚亞投信",
     "type": "Fund",
@@ -817,6 +832,21 @@ const FUNDS = [
     "y3": 406.84,
     "y5": 498.88,
     "score": 148.209
+  },
+  {
+    "name": "元大大中華TMT基金",
+    "company": "元大投信",
+    "type": "Fund",
+    "category": "跨國投資股票型區域型",
+    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACYT61",
+    "ytd": 86.02,
+    "m3": 60.25,
+    "m6": 96.01,
+    "y1": 189.22,
+    "y2": 190.16,
+    "y3": 326.51,
+    "y5": 189.45,
+    "score": 147.701
   },
   {
     "name": "元大台灣高股息優質龍頭基金B配息",
@@ -847,36 +877,6 @@ const FUNDS = [
     "y3": 278.76,
     "y5": 228.82,
     "score": 146.568
-  },
-  {
-    "name": "復華全球物聯網科技基金",
-    "company": "復華投信",
-    "type": "Fund",
-    "category": "跨國投資股票型全球市場",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACFH67",
-    "ytd": 91.52,
-    "m3": 58.84,
-    "m6": 91.31,
-    "y1": 213.9,
-    "y2": 214.13,
-    "y3": 390.14,
-    "y5": 315.63,
-    "score": 146.174
-  },
-  {
-    "name": "統一黑馬基金",
-    "company": "統一投信",
-    "type": "Fund",
-    "category": "",
-    "url": "https://www.moneydj.com/funddj/ya/yp010000.djhtm?a=ACPS02",
-    "ytd": 0.0,
-    "m3": 56.1,
-    "m6": 98.01,
-    "y1": 222.48,
-    "y2": 205.75,
-    "y3": 365.8,
-    "y5": 483.42,
-    "score": 145.602
   }
 ];
 
