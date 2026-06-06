@@ -79,22 +79,20 @@ h1 {
 .fund-card-badges {
     display: flex; gap: 6px; flex-shrink: 0; align-items: center;
 }
-.fund-card-stats {
-    display: flex; align-items: center; gap: 0; padding-left: 30px;
+.fund-card-company {
+    font-size: 0.65rem; color: #64748b; margin-left: 4px; margin-top: 2px;
+    white-space: nowrap;
 }
-.fund-card-stat {
-    flex: 1; text-align: center;
-}
-.fund-card-stat-label { font-size: 0.6rem; color: #475569; margin-bottom: 1px; }
-.fund-card-stat-value { font-size: 0.85rem; font-weight: 700; }
-.fund-card-stat-value.diff-value { font-size: 0.68rem; font-weight: 600; }
-.fund-card-diff {
+.fund-row {
     display: flex; align-items: center; padding-left: 30px;
-    border-top: 1px solid #1a2332;
 }
-.fund-card-diff-label {
-    width: 30px; flex-shrink: 0; font-size: 0.55rem; color: #5b6b7c;
-    text-align: right; padding-right: 6px;
+.fund-row-label {
+    width: 38px; flex-shrink: 0; font-size: 0.6rem; color: #475569;
+    text-align: left;
+}
+.fund-row-val {
+    flex: 1; text-align: center; font-size: 0.8rem; font-weight: 700;
+    padding: 2px 0;
 }
 .fund-card-stat-value-label { font-size: 0.6rem; color: #475569; }
 @media (min-width: 768px) {
@@ -129,7 +127,7 @@ h1 {
 </div>
 <div id="resultCount"></div>
 <p class="last-updated">共 <span>225</span> 檔基金</p>
-<p class="last-updated">更新時間：2026-06-06 11:08（每日自動更新）</p>
+<p class="last-updated">更新時間：2026-06-06 11:14（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
@@ -1216,43 +1214,37 @@ function renderCards() {
         const d53c = f.d53 >= 0 ? 'positive' : 'negative';
         const d56c = f.d56 >= 0 ? 'positive' : 'negative';
         const d51c = f.d51 >= 0 ? 'positive' : 'negative';
+        const sd3 = f.dt3 >= 0 ? '+' : ''; const sd6 = f.dt6 >= 0 ? '+' : '';
+        const sd1 = f.dt1 >= 0 ? '+' : ''; const s53 = f.d53 >= 0 ? '+' : '';
+        const s56 = f.d56 >= 0 ? '+' : ''; const s51 = f.d51 >= 0 ? '+' : '';
         return '<div class="fund-card">'
             + '<div class="fund-card-top">'
             + '<div class="fund-card-rank ' + rc + '">' + (i+1) + '</div>'
             + '<div class="fund-card-name"><a href="' + f.url + '" target="_blank" rel="noopener">' + f.name + '</a></div>'
+            + '<div class="fund-card-company">' + f.company.replace('投信','') + '</div>'
             + '<div class="fund-card-badges">'
             + badge
             + '<span class="badge-score">' + f.score.toFixed(1) + '</span>'
             + '</div></div>'
-            + '<div class="fund-card-stats">'
-            + '<div class="fund-card-stat">'
-            + '<div class="fund-card-stat-label">' + f.company.replace('投信','') + '</div>'
+            + '<div class="fund-row">'
+            + '<div class="fund-row-label">報酬</div>'
+            + '<div class="fund-row-val ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</div>'
+            + '<div class="fund-row-val ' + m6c + '">' + sign6 + f.m6.toFixed(1) + '%</div>'
+            + '<div class="fund-row-val ' + y1c + '">' + sign1 + f.y1.toFixed(1) + '%</div>'
             + '</div>'
-            + '<div class="fund-card-stat">'
-            + '<div class="fund-card-stat-label">3M</div>'
-            + '<div class="fund-card-stat-value ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</div>'
+            + '<div class="fund-row">'
+            + '<div class="fund-row-label">ΔTWII</div>'
+            + '<div class="fund-row-val ' + dt3c + '">' + sd3 + f.dt3.toFixed(1) + '%</div>'
+            + '<div class="fund-row-val ' + dt6c + '">' + sd6 + f.dt6.toFixed(1) + '%</div>'
+            + '<div class="fund-row-val ' + dt1c + '">' + sd1 + f.dt1.toFixed(1) + '%</div>'
             + '</div>'
-            + '<div class="fund-card-stat">'
-            + '<div class="fund-card-stat-label">6M</div>'
-            + '<div class="fund-card-stat-value ' + m6c + '">' + sign6 + f.m6.toFixed(1) + '%</div>'
+            + '<div class="fund-row">'
+            + '<div class="fund-row-label">Δ0050</div>'
+            + '<div class="fund-row-val ' + d53c + '">' + s53 + f.d53.toFixed(1) + '%</div>'
+            + '<div class="fund-row-val ' + d56c + '">' + s56 + f.d56.toFixed(1) + '%</div>'
+            + '<div class="fund-row-val ' + d51c + '">' + s51 + f.d51.toFixed(1) + '%</div>'
             + '</div>'
-            + '<div class="fund-card-stat">'
-            + '<div class="fund-card-stat-label">1Y</div>'
-            + '<div class="fund-card-stat-value ' + y1c + '">' + sign1 + f.y1.toFixed(1) + '%</div>'
-            + '</div>'
-            + '<div class="fund-card-diff">'
-            + '<div class="fund-card-diff-label">ΔTWII</div>'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-value diff-value ' + dt3c + '">' + (f.dt3>=0?'+':'') + f.dt3.toFixed(1) + '%</div></div>'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-value diff-value ' + dt6c + '">' + (f.dt6>=0?'+':'') + f.dt6.toFixed(1) + '%</div></div>'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-value diff-value ' + dt1c + '">' + (f.dt1>=0?'+':'') + f.dt1.toFixed(1) + '%</div></div>'
-            + '</div>'
-            + '<div class="fund-card-diff">'
-            + '<div class="fund-card-diff-label">Δ0050</div>'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-value diff-value ' + d53c + '">' + (f.d53>=0?'+':'') + f.d53.toFixed(1) + '%</div></div>'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-value diff-value ' + d56c + '">' + (f.d56>=0?'+':'') + f.d56.toFixed(1) + '%</div></div>'
-            + '<div class="fund-card-stat"><div class="fund-card-stat-value diff-value ' + d51c + '">' + (f.d51>=0?'+':'') + f.d51.toFixed(1) + '%</div></div>'
-            + '</div>'
-            + '</div></div>';
+            + '</div>';
     }).join('');
 }
 
