@@ -94,6 +94,13 @@ h1 {
     flex: 1; text-align: center; font-size: 0.8rem; font-weight: 700;
     padding: 2px 0;
 }
+.fund-row-head {
+    padding-left: 38px;
+}
+.fund-row-hdr {
+    flex: 1; text-align: center; font-size: 0.55rem; color: #334155;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
 .fund-card-stat-value-label { font-size: 0.6rem; color: #475569; }
 @media (min-width: 768px) {
     body { padding: 24px; }
@@ -127,7 +134,7 @@ h1 {
 </div>
 <div id="resultCount"></div>
 <p class="last-updated">共 <span>225</span> 檔基金</p>
-<p class="last-updated">更新時間：2026-06-06 11:14（每日自動更新）</p>
+<p class="last-updated">更新時間：2026-06-06 11:22（每日自動更新）</p>
 
 <div class="fund-list" id="fundList"></div>
 
@@ -1226,6 +1233,12 @@ function renderCards() {
             + badge
             + '<span class="badge-score">' + f.score.toFixed(1) + '</span>'
             + '</div></div>'
+            + '<div class="fund-row fund-row-head">'
+            + '<div class="fund-row-label"></div>'
+            + '<div class="fund-row-hdr">3M</div>'
+            + '<div class="fund-row-hdr">6M</div>'
+            + '<div class="fund-row-hdr">1Y</div>'
+            + '</div>'
             + '<div class="fund-row">'
             + '<div class="fund-row-label">報酬</div>'
             + '<div class="fund-row-val ' + m3c + '">' + sign3 + f.m3.toFixed(1) + '%</div>'
@@ -1235,14 +1248,8 @@ function renderCards() {
             + '<div class="fund-row">'
             + '<div class="fund-row-label">ΔTWII</div>'
             + '<div class="fund-row-val ' + dt3c + '">' + sd3 + f.dt3.toFixed(1) + '%</div>'
-            + '<div class="fund-row-val ' + dt6c + '">' + sd6 + f.dt6.toFixed(1) + '%</div>'
-            + '<div class="fund-row-val ' + dt1c + '">' + sd1 + f.dt1.toFixed(1) + '%</div>'
-            + '</div>'
-            + '<div class="fund-row">'
-            + '<div class="fund-row-label">Δ0050</div>'
+            + '<div class="fund-row-label" style="width:auto;padding:0 8px">Δ0050</div>'
             + '<div class="fund-row-val ' + d53c + '">' + s53 + f.d53.toFixed(1) + '%</div>'
-            + '<div class="fund-row-val ' + d56c + '">' + s56 + f.d56.toFixed(1) + '%</div>'
-            + '<div class="fund-row-val ' + d51c + '">' + s51 + f.d51.toFixed(1) + '%</div>'
             + '</div>'
             + '</div>';
     }).join('');
