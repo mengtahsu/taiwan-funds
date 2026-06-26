@@ -1,0 +1,1389 @@
+[
+  {
+    "rank": 1,
+    "name": "安聯台灣科技基金",
+    "type": "Fund",
+    "score": 88.06,
+    "cumulative_pct": 75.73,
+    "stability_pct": 100.0,
+    "momentum_pct": 8.77,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 2.639,
+    "monthly": [
+      7.41,
+      12.85,
+      5.36,
+      16.34,
+      7.16,
+      10.37
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "元大卓越基金",
+    "type": "Fund",
+    "score": 83.18,
+    "cumulative_pct": 56.09,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.28,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 3.686,
+    "monthly": [
+      8.71,
+      10.37,
+      4.72,
+      9.98,
+      6.07,
+      6.49
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "復華中國5G通信ETF基金",
+    "type": "ETF",
+    "score": 83.13,
+    "cumulative_pct": 112.25,
+    "stability_pct": 83.3,
+    "momentum_pct": 5.66,
+    "max_drawdown_pct": 1.07,
+    "sharpe_like": 0.978,
+    "monthly": [
+      21.68,
+      42.0,
+      9.91,
+      0.52,
+      -1.07,
+      12.39
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "安聯台灣大壩基金-G累積型",
+    "type": "Fund",
+    "score": 82.19,
+    "cumulative_pct": 69.88,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.44,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.942,
+    "monthly": [
+      10.81,
+      16.15,
+      2.2,
+      14.0,
+      5.84,
+      7.04
+    ]
+  },
+  {
+    "rank": 5,
+    "name": "安聯台灣大壩基金-A累積型",
+    "type": "Fund",
+    "score": 81.86,
+    "cumulative_pct": 69.07,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.36,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.929,
+    "monthly": [
+      10.74,
+      16.03,
+      2.13,
+      13.9,
+      5.76,
+      6.95
+    ]
+  },
+  {
+    "rank": 6,
+    "name": "玉山科技島基金",
+    "type": "Fund",
+    "score": 81.31,
+    "cumulative_pct": 64.9,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.06,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 2.235,
+    "monthly": [
+      6.83,
+      13.69,
+      5.14,
+      14.79,
+      6.42,
+      5.71
+    ]
+  },
+  {
+    "rank": 7,
+    "name": "台新主流基金",
+    "type": "Fund",
+    "score": 80.64,
+    "cumulative_pct": 65.99,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.89,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.538,
+    "monthly": [
+      11.88,
+      19.9,
+      1.45,
+      6.77,
+      5.17,
+      8.62
+    ]
+  },
+  {
+    "rank": 8,
+    "name": "安聯台灣智慧基金",
+    "type": "Fund",
+    "score": 80.6,
+    "cumulative_pct": 68.32,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.0,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.672,
+    "monthly": [
+      10.17,
+      16.79,
+      1.6,
+      14.67,
+      3.25,
+      8.75
+    ]
+  },
+  {
+    "rank": 9,
+    "name": "元大高科技基金",
+    "type": "Fund",
+    "score": 80.27,
+    "cumulative_pct": 63.81,
+    "stability_pct": 100.0,
+    "momentum_pct": 5.83,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 2.044,
+    "monthly": [
+      8.78,
+      13.7,
+      4.55,
+      13.26,
+      2.08,
+      9.57
+    ]
+  },
+  {
+    "rank": 10,
+    "name": "野村鴻運基金",
+    "type": "Fund",
+    "score": 80.01,
+    "cumulative_pct": 70.7,
+    "stability_pct": 100.0,
+    "momentum_pct": 5.08,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.601,
+    "monthly": [
+      10.48,
+      18.28,
+      2.2,
+      15.75,
+      4.39,
+      5.78
+    ]
+  },
+  {
+    "rank": 11,
+    "name": "野村台灣運籌基金",
+    "type": "Fund",
+    "score": 79.89,
+    "cumulative_pct": 70.3,
+    "stability_pct": 100.0,
+    "momentum_pct": 5.12,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.581,
+    "monthly": [
+      10.41,
+      18.3,
+      1.92,
+      15.77,
+      4.56,
+      5.68
+    ]
+  },
+  {
+    "rank": 12,
+    "name": "野村成長基金",
+    "type": "Fund",
+    "score": 79.74,
+    "cumulative_pct": 68.11,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.67,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.92,
+    "monthly": [
+      10.88,
+      16.56,
+      4.7,
+      13.41,
+      4.9,
+      4.43
+    ]
+  },
+  {
+    "rank": 13,
+    "name": "野村中小基金-累積S類型",
+    "type": "Fund",
+    "score": 79.64,
+    "cumulative_pct": 61.36,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.21,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.882,
+    "monthly": [
+      7.82,
+      15.51,
+      2.09,
+      12.52,
+      7.19,
+      5.22
+    ]
+  },
+  {
+    "rank": 14,
+    "name": "野村高科技基金-累積型",
+    "type": "Fund",
+    "score": 79.51,
+    "cumulative_pct": 57.56,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.82,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.94,
+    "monthly": [
+      7.16,
+      12.4,
+      1.68,
+      12.82,
+      4.1,
+      9.54
+    ]
+  },
+  {
+    "rank": 15,
+    "name": "復華高成長基金",
+    "type": "Fund",
+    "score": 79.25,
+    "cumulative_pct": 66.24,
+    "stability_pct": 100.0,
+    "momentum_pct": 5.38,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.618,
+    "monthly": [
+      10.34,
+      14.71,
+      1.33,
+      16.76,
+      3.77,
+      6.98
+    ]
+  },
+  {
+    "rank": 16,
+    "name": "野村中小基金-累積型",
+    "type": "Fund",
+    "score": 79.23,
+    "cumulative_pct": 60.45,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.1,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.858,
+    "monthly": [
+      7.69,
+      15.44,
+      2.0,
+      12.41,
+      7.07,
+      5.13
+    ]
+  },
+  {
+    "rank": 17,
+    "name": "復華復華基金",
+    "type": "Fund",
+    "score": 78.49,
+    "cumulative_pct": 65.05,
+    "stability_pct": 100.0,
+    "momentum_pct": 5.17,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.53,
+    "monthly": [
+      11.92,
+      14.51,
+      0.19,
+      16.23,
+      3.85,
+      6.49
+    ]
+  },
+  {
+    "rank": 18,
+    "name": "路博邁台灣5G股票基金T累積型",
+    "type": "Fund",
+    "score": 78.41,
+    "cumulative_pct": 63.87,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.99,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 2.097,
+    "monthly": [
+      10.27,
+      12.87,
+      6.55,
+      14.28,
+      2.92,
+      5.06
+    ]
+  },
+  {
+    "rank": 19,
+    "name": "元大多多基金",
+    "type": "Fund",
+    "score": 78.07,
+    "cumulative_pct": 61.89,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.98,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.745,
+    "monthly": [
+      6.91,
+      13.55,
+      3.95,
+      16.42,
+      3.38,
+      6.59
+    ]
+  },
+  {
+    "rank": 20,
+    "name": "統一全天候基金",
+    "type": "Fund",
+    "score": 78.05,
+    "cumulative_pct": 67.13,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.07,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.619,
+    "monthly": [
+      11.67,
+      14.32,
+      3.06,
+      17.29,
+      3.44,
+      4.7
+    ]
+  },
+  {
+    "rank": 21,
+    "name": "復華全方位基金A類型",
+    "type": "Fund",
+    "score": 77.15,
+    "cumulative_pct": 58.4,
+    "stability_pct": 100.0,
+    "momentum_pct": 5.31,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.594,
+    "monthly": [
+      9.5,
+      12.88,
+      0.35,
+      15.17,
+      3.9,
+      6.72
+    ]
+  },
+  {
+    "rank": 22,
+    "name": "元大新主流基金",
+    "type": "Fund",
+    "score": 76.8,
+    "cumulative_pct": 61.2,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.1,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.696,
+    "monthly": [
+      11.71,
+      12.62,
+      3.03,
+      14.82,
+      1.72,
+      6.48
+    ]
+  },
+  {
+    "rank": 23,
+    "name": "統一奔騰基金",
+    "type": "Fund",
+    "score": 76.54,
+    "cumulative_pct": 62.14,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.16,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.486,
+    "monthly": [
+      11.07,
+      14.74,
+      0.98,
+      16.13,
+      4.5,
+      3.82
+    ]
+  },
+  {
+    "rank": 24,
+    "name": "統一龍馬基金",
+    "type": "Fund",
+    "score": 76.51,
+    "cumulative_pct": 60.5,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.32,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.566,
+    "monthly": [
+      8.17,
+      14.09,
+      2.58,
+      16.53,
+      5.74,
+      2.89
+    ]
+  },
+  {
+    "rank": 25,
+    "name": "玉山高成長基金-A類型",
+    "type": "Fund",
+    "score": 76.36,
+    "cumulative_pct": 51.48,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.33,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 2.359,
+    "monthly": [
+      8.52,
+      9.38,
+      4.48,
+      12.23,
+      3.93,
+      4.72
+    ]
+  },
+  {
+    "rank": 26,
+    "name": "復華中小精選基金",
+    "type": "Fund",
+    "score": 76.07,
+    "cumulative_pct": 57.24,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.73,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.536,
+    "monthly": [
+      9.18,
+      13.84,
+      0.46,
+      14.82,
+      4.08,
+      5.38
+    ]
+  },
+  {
+    "rank": 27,
+    "name": "台新2000高科技基金-A不配息",
+    "type": "Fund",
+    "score": 75.8,
+    "cumulative_pct": 49.83,
+    "stability_pct": 100.0,
+    "momentum_pct": 6.46,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.422,
+    "monthly": [
+      4.9,
+      16.6,
+      0.15,
+      7.95,
+      5.05,
+      7.86
+    ]
+  },
+  {
+    "rank": 28,
+    "name": "統一新亞洲科技能源基金",
+    "type": "Fund",
+    "score": 75.67,
+    "cumulative_pct": 60.81,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.42,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.591,
+    "monthly": [
+      10.16,
+      16.75,
+      4.22,
+      12.24,
+      1.04,
+      5.79
+    ]
+  },
+  {
+    "rank": 29,
+    "name": "統一大龍印基金",
+    "type": "Fund",
+    "score": 75.52,
+    "cumulative_pct": 54.93,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.5,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.645,
+    "monthly": [
+      8.37,
+      15.02,
+      2.39,
+      11.25,
+      1.75,
+      7.24
+    ]
+  },
+  {
+    "rank": 30,
+    "name": "國泰小龍基金",
+    "type": "Fund",
+    "score": 75.49,
+    "cumulative_pct": 61.63,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.62,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.36,
+    "monthly": [
+      9.49,
+      17.76,
+      1.21,
+      15.35,
+      4.14,
+      3.11
+    ]
+  },
+  {
+    "rank": 31,
+    "name": "第一金電子基金",
+    "type": "Fund",
+    "score": 75.32,
+    "cumulative_pct": 60.09,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.46,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.509,
+    "monthly": [
+      11.23,
+      13.85,
+      2.08,
+      15.71,
+      2.53,
+      4.39
+    ]
+  },
+  {
+    "rank": 32,
+    "name": "群益創新科技基金",
+    "type": "Fund",
+    "score": 74.9,
+    "cumulative_pct": 59.29,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.39,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.455,
+    "monthly": [
+      9.21,
+      16.43,
+      2.55,
+      14.32,
+      1.52,
+      5.26
+    ]
+  },
+  {
+    "rank": 33,
+    "name": "野村優質基金-累積型",
+    "type": "Fund",
+    "score": 74.46,
+    "cumulative_pct": 53.51,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.67,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.719,
+    "monthly": [
+      9.61,
+      15.31,
+      4.22,
+      8.46,
+      5.62,
+      1.73
+    ]
+  },
+  {
+    "rank": 34,
+    "name": "摩根新興科技基金-一般型",
+    "type": "Fund",
+    "score": 74.33,
+    "cumulative_pct": 50.71,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.04,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.783,
+    "monthly": [
+      8.72,
+      13.0,
+      2.48,
+      10.61,
+      2.21,
+      5.88
+    ]
+  },
+  {
+    "rank": 35,
+    "name": "施羅德台灣樂活中小基金-A類型",
+    "type": "Fund",
+    "score": 73.85,
+    "cumulative_pct": 44.7,
+    "stability_pct": 100.0,
+    "momentum_pct": 4.8,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.854,
+    "monthly": [
+      6.09,
+      11.3,
+      1.25,
+      10.2,
+      3.93,
+      5.68
+    ]
+  },
+  {
+    "rank": 36,
+    "name": "第一金中概平衡基金",
+    "type": "Fund",
+    "score": 73.05,
+    "cumulative_pct": 50.73,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.49,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.528,
+    "monthly": [
+      8.15,
+      14.07,
+      1.79,
+      12.09,
+      2.14,
+      4.84
+    ]
+  },
+  {
+    "rank": 37,
+    "name": "凱基台商天下基金",
+    "type": "Fund",
+    "score": 72.96,
+    "cumulative_pct": 50.39,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.36,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.575,
+    "monthly": [
+      7.81,
+      10.94,
+      3.02,
+      14.3,
+      0.97,
+      5.76
+    ]
+  },
+  {
+    "rank": 38,
+    "name": "凱基台灣精五門基金A類型",
+    "type": "Fund",
+    "score": 72.47,
+    "cumulative_pct": 66.42,
+    "stability_pct": 83.3,
+    "momentum_pct": 4.7,
+    "max_drawdown_pct": 0.63,
+    "sharpe_like": 1.364,
+    "monthly": [
+      12.97,
+      17.74,
+      -0.63,
+      14.9,
+      2.69,
+      6.71
+    ]
+  },
+  {
+    "rank": 39,
+    "name": "統一大中華中小基金",
+    "type": "Fund",
+    "score": 71.63,
+    "cumulative_pct": 49.76,
+    "stability_pct": 100.0,
+    "momentum_pct": 2.6,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.453,
+    "monthly": [
+      8.62,
+      15.46,
+      3.29,
+      9.87,
+      0.7,
+      4.49
+    ]
+  },
+  {
+    "rank": 40,
+    "name": "復華亞太平衡基金",
+    "type": "Fund",
+    "score": 71.57,
+    "cumulative_pct": 33.51,
+    "stability_pct": 100.0,
+    "momentum_pct": 3.37,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 2.646,
+    "monthly": [
+      5.19,
+      3.82,
+      6.06,
+      7.9,
+      1.83,
+      4.91
+    ]
+  },
+  {
+    "rank": 41,
+    "name": "統一中小基金",
+    "type": "Fund",
+    "score": 71.47,
+    "cumulative_pct": 61.45,
+    "stability_pct": 83.3,
+    "momentum_pct": 4.28,
+    "max_drawdown_pct": 0.12,
+    "sharpe_like": 1.251,
+    "monthly": [
+      9.38,
+      13.23,
+      -0.12,
+      20.08,
+      6.64,
+      1.92
+    ]
+  },
+  {
+    "rank": 42,
+    "name": "統一黑馬基金",
+    "type": "Fund",
+    "score": 70.7,
+    "cumulative_pct": 60.31,
+    "stability_pct": 83.3,
+    "momentum_pct": 3.69,
+    "max_drawdown_pct": 0.14,
+    "sharpe_like": 1.325,
+    "monthly": [
+      11.84,
+      14.35,
+      -0.14,
+      16.78,
+      2.15,
+      5.23
+    ]
+  },
+  {
+    "rank": 43,
+    "name": "瀚亞高科技基金",
+    "type": "Fund",
+    "score": 70.68,
+    "cumulative_pct": 41.86,
+    "stability_pct": 100.0,
+    "momentum_pct": 2.32,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.955,
+    "monthly": [
+      9.46,
+      8.85,
+      6.36,
+      6.97,
+      0.18,
+      4.46
+    ]
+  },
+  {
+    "rank": 44,
+    "name": "國泰台灣高股息基金-A不配息",
+    "type": "Fund",
+    "score": 70.61,
+    "cumulative_pct": 46.55,
+    "stability_pct": 100.0,
+    "momentum_pct": 2.38,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.462,
+    "monthly": [
+      7.87,
+      13.92,
+      2.63,
+      10.87,
+      2.1,
+      2.65
+    ]
+  },
+  {
+    "rank": 45,
+    "name": "國泰台灣高股息基金-B配息",
+    "type": "Fund",
+    "score": 70.59,
+    "cumulative_pct": 46.53,
+    "stability_pct": 100.0,
+    "momentum_pct": 2.38,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.458,
+    "monthly": [
+      7.85,
+      13.95,
+      2.61,
+      10.87,
+      2.11,
+      2.64
+    ]
+  },
+  {
+    "rank": 46,
+    "name": "統一台灣動力基金-A類型",
+    "type": "Fund",
+    "score": 70.13,
+    "cumulative_pct": 60.52,
+    "stability_pct": 83.3,
+    "momentum_pct": 3.57,
+    "max_drawdown_pct": 0.35,
+    "sharpe_like": 1.298,
+    "monthly": [
+      11.52,
+      15.35,
+      -0.35,
+      16.74,
+      4.07,
+      3.07
+    ]
+  },
+  {
+    "rank": 47,
+    "name": "統一大滿貫基金-A類型",
+    "type": "Fund",
+    "score": 69.28,
+    "cumulative_pct": 56.94,
+    "stability_pct": 83.3,
+    "momentum_pct": 3.6,
+    "max_drawdown_pct": 0.37,
+    "sharpe_like": 1.32,
+    "monthly": [
+      11.53,
+      12.89,
+      -0.37,
+      16.57,
+      3.96,
+      3.24
+    ]
+  },
+  {
+    "rank": 48,
+    "name": "元大大中華TMT基金",
+    "type": "Fund",
+    "score": 68.98,
+    "cumulative_pct": 45.37,
+    "stability_pct": 100.0,
+    "momentum_pct": 0.96,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.545,
+    "monthly": [
+      9.47,
+      6.63,
+      9.49,
+      11.6,
+      0.05,
+      1.87
+    ]
+  },
+  {
+    "rank": 49,
+    "name": "富邦新台商基金",
+    "type": "Fund",
+    "score": 68.81,
+    "cumulative_pct": 55.9,
+    "stability_pct": 83.3,
+    "momentum_pct": 3.19,
+    "max_drawdown_pct": 0.19,
+    "sharpe_like": 1.277,
+    "monthly": [
+      11.46,
+      16.8,
+      -0.19,
+      12.7,
+      2.14,
+      4.23
+    ]
+  },
+  {
+    "rank": 50,
+    "name": "統一全球智聯網AIoT基金",
+    "type": "Fund",
+    "score": 68.69,
+    "cumulative_pct": 41.37,
+    "stability_pct": 100.0,
+    "momentum_pct": 2.24,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.283,
+    "monthly": [
+      5.69,
+      10.25,
+      1.98,
+      13.86,
+      0.14,
+      4.34
+    ]
+  },
+  {
+    "rank": 51,
+    "name": "復華全球物聯網科技基金",
+    "type": "Fund",
+    "score": 67.63,
+    "cumulative_pct": 42.99,
+    "stability_pct": 100.0,
+    "momentum_pct": 1.01,
+    "max_drawdown_pct": 0,
+    "sharpe_like": 1.241,
+    "monthly": [
+      7.56,
+      4.69,
+      7.52,
+      15.76,
+      0.18,
+      1.84
+    ]
+  },
+  {
+    "rank": 52,
+    "name": "新光創新科技基金",
+    "type": "Fund",
+    "score": 66.43,
+    "cumulative_pct": 52.67,
+    "stability_pct": 83.3,
+    "momentum_pct": 3.52,
+    "max_drawdown_pct": 1.02,
+    "sharpe_like": 1.164,
+    "monthly": [
+      8.4,
+      12.67,
+      -1.02,
+      17.89,
+      1.38,
+      5.67
+    ]
+  },
+  {
+    "rank": 53,
+    "name": "統一全球新科技基金",
+    "type": "Fund",
+    "score": 63.22,
+    "cumulative_pct": 42.18,
+    "stability_pct": 83.3,
+    "momentum_pct": 0.8,
+    "max_drawdown_pct": 0.28,
+    "sharpe_like": 1.523,
+    "monthly": [
+      9.09,
+      8.45,
+      6.63,
+      10.95,
+      -0.28,
+      1.87
+    ]
+  },
+  {
+    "rank": 54,
+    "name": "復華亞太神龍科技基金",
+    "type": "Fund",
+    "score": 61.63,
+    "cumulative_pct": 46.33,
+    "stability_pct": 83.3,
+    "momentum_pct": 0.34,
+    "max_drawdown_pct": 0.92,
+    "sharpe_like": 1.196,
+    "monthly": [
+      7.27,
+      7.73,
+      7.71,
+      16.78,
+      -0.92,
+      1.6
+    ]
+  },
+  {
+    "rank": 55,
+    "name": "元大台灣高股息優質龍頭基金A不配息",
+    "type": "Fund",
+    "score": 61.55,
+    "cumulative_pct": 25.44,
+    "stability_pct": 83.3,
+    "momentum_pct": 2.79,
+    "max_drawdown_pct": 0.37,
+    "sharpe_like": 1.717,
+    "monthly": [
+      3.96,
+      3.29,
+      6.67,
+      3.74,
+      -0.37,
+      5.96
+    ]
+  },
+  {
+    "rank": 56,
+    "name": "國泰臺灣加權指數單日正向2倍基金",
+    "type": "ETF",
+    "score": 61.33,
+    "cumulative_pct": 70.27,
+    "stability_pct": 83.3,
+    "momentum_pct": 1.77,
+    "max_drawdown_pct": 4.93,
+    "sharpe_like": 1.225,
+    "monthly": [
+      15.0,
+      5.74,
+      14.05,
+      19.07,
+      -4.93,
+      8.46
+    ]
+  },
+  {
+    "rank": 57,
+    "name": "元大台灣50單日正向2倍基金",
+    "type": "ETF",
+    "score": 60.84,
+    "cumulative_pct": 70.34,
+    "stability_pct": 83.3,
+    "momentum_pct": 1.68,
+    "max_drawdown_pct": 5.12,
+    "sharpe_like": 1.213,
+    "monthly": [
+      14.85,
+      5.88,
+      14.05,
+      19.34,
+      -5.12,
+      8.47
+    ]
+  },
+  {
+    "rank": 58,
+    "name": "富邦臺灣加權單日正向兩倍基金",
+    "type": "ETF",
+    "score": 60.54,
+    "cumulative_pct": 69.76,
+    "stability_pct": 83.3,
+    "momentum_pct": 1.66,
+    "max_drawdown_pct": 5.19,
+    "sharpe_like": 1.212,
+    "monthly": [
+      14.75,
+      5.89,
+      14.02,
+      19.09,
+      -5.19,
+      8.52
+    ]
+  },
+  {
+    "rank": 59,
+    "name": "群益臺灣加權指數單日正向2倍基金",
+    "type": "ETF",
+    "score": 60.17,
+    "cumulative_pct": 69.75,
+    "stability_pct": 83.3,
+    "momentum_pct": 1.59,
+    "max_drawdown_pct": 5.33,
+    "sharpe_like": 1.208,
+    "monthly": [
+      14.6,
+      6.1,
+      14.1,
+      19.11,
+      -5.33,
+      8.51
+    ]
+  },
+  {
+    "rank": 60,
+    "name": "兆豐臺灣藍籌30ETF基金",
+    "type": "ETF",
+    "score": 60.16,
+    "cumulative_pct": 36.73,
+    "stability_pct": 83.3,
+    "momentum_pct": 1.67,
+    "max_drawdown_pct": 1.52,
+    "sharpe_like": 1.449,
+    "monthly": [
+      8.84,
+      3.53,
+      7.31,
+      9.5,
+      -1.52,
+      4.86
+    ]
+  },
+  {
+    "rank": 61,
+    "name": "統一亞太基金",
+    "type": "Fund",
+    "score": 59.48,
+    "cumulative_pct": 37.35,
+    "stability_pct": 83.3,
+    "momentum_pct": 1.95,
+    "max_drawdown_pct": 1.8,
+    "sharpe_like": 1.23,
+    "monthly": [
+      4.64,
+      9.94,
+      2.85,
+      11.85,
+      -1.8,
+      5.69
+    ]
+  },
+  {
+    "rank": 62,
+    "name": "復華華人世紀基金",
+    "type": "Fund",
+    "score": 59.48,
+    "cumulative_pct": 45.61,
+    "stability_pct": 83.3,
+    "momentum_pct": 0.64,
+    "max_drawdown_pct": 2.18,
+    "sharpe_like": 1.274,
+    "monthly": [
+      7.45,
+      10.95,
+      5.96,
+      13.91,
+      -2.18,
+      3.45
+    ]
+  },
+  {
+    "rank": 63,
+    "name": "復華亞太成長基金",
+    "type": "Fund",
+    "score": 59.19,
+    "cumulative_pct": 41.22,
+    "stability_pct": 83.3,
+    "momentum_pct": 0.49,
+    "max_drawdown_pct": 1.63,
+    "sharpe_like": 1.231,
+    "monthly": [
+      4.1,
+      10.06,
+      7.95,
+      13.12,
+      -1.63,
+      2.61
+    ]
+  },
+  {
+    "rank": 64,
+    "name": "國泰美國費城半導體基金",
+    "type": "ETF",
+    "score": 58.76,
+    "cumulative_pct": 37.16,
+    "stability_pct": 83.3,
+    "momentum_pct": 0.04,
+    "max_drawdown_pct": 0.75,
+    "sharpe_like": 0.98,
+    "monthly": [
+      3.15,
+      3.59,
+      12.06,
+      14.45,
+      -0.75,
+      0.84
+    ]
+  },
+  {
+    "rank": 65,
+    "name": "富邦AI智能新趨勢多重資產型基金-A類型",
+    "type": "Fund",
+    "score": 58.56,
+    "cumulative_pct": 40.5,
+    "stability_pct": 83.3,
+    "momentum_pct": -0.15,
+    "max_drawdown_pct": 1.26,
+    "sharpe_like": 1.044,
+    "monthly": [
+      7.88,
+      4.72,
+      6.97,
+      16.62,
+      -1.26,
+      0.97
+    ]
+  },
+  {
+    "rank": 66,
+    "name": "國泰臺韓科技基金",
+    "type": "ETF",
+    "score": 57.11,
+    "cumulative_pct": 54.83,
+    "stability_pct": 83.3,
+    "momentum_pct": 2.23,
+    "max_drawdown_pct": 5.08,
+    "sharpe_like": 1.015,
+    "monthly": [
+      8.39,
+      2.55,
+      11.78,
+      19.85,
+      -5.08,
+      9.54
+    ]
+  },
+  {
+    "rank": 67,
+    "name": "群益亞太新趨勢平衡基金",
+    "type": "Fund",
+    "score": 54.78,
+    "cumulative_pct": 27.2,
+    "stability_pct": 83.3,
+    "momentum_pct": 0.24,
+    "max_drawdown_pct": 1.68,
+    "sharpe_like": 1.032,
+    "monthly": [
+      1.32,
+      10.4,
+      5.25,
+      7.57,
+      -1.68,
+      2.16
+    ]
+  },
+  {
+    "rank": 68,
+    "name": "第一金亞洲科技基金",
+    "type": "Fund",
+    "score": 52.64,
+    "cumulative_pct": 38.91,
+    "stability_pct": 83.3,
+    "momentum_pct": 0.96,
+    "max_drawdown_pct": 4.49,
+    "sharpe_like": 0.925,
+    "monthly": [
+      2.11,
+      5.02,
+      10.2,
+      15.67,
+      -4.49,
+      6.4
+    ]
+  },
+  {
+    "rank": 69,
+    "name": "復華全球大趨勢基金",
+    "type": "Fund",
+    "score": 48.55,
+    "cumulative_pct": 13.64,
+    "stability_pct": 66.7,
+    "momentum_pct": 0.11,
+    "max_drawdown_pct": 0.67,
+    "sharpe_like": 0.84,
+    "monthly": [
+      2.42,
+      -0.67,
+      5.75,
+      5.4,
+      -0.53,
+      0.75
+    ]
+  },
+  {
+    "rank": 70,
+    "name": "富邦歐亞絲路多重資產型基金A不配息",
+    "type": "Fund",
+    "score": 46.81,
+    "cumulative_pct": 40.11,
+    "stability_pct": 83.3,
+    "momentum_pct": -0.72,
+    "max_drawdown_pct": 6.6,
+    "sharpe_like": 0.88,
+    "monthly": [
+      4.35,
+      15.38,
+      6.34,
+      11.42,
+      -6.6,
+      5.16
+    ]
+  },
+  {
+    "rank": 71,
+    "name": "路博邁5G股票基金T累積型",
+    "type": "Fund",
+    "score": 46.36,
+    "cumulative_pct": 34.44,
+    "stability_pct": 66.7,
+    "momentum_pct": -2.46,
+    "max_drawdown_pct": 3.1,
+    "sharpe_like": 0.923,
+    "monthly": [
+      7.24,
+      9.04,
+      12.03,
+      7.88,
+      -3.1,
+      -1.83
+    ]
+  },
+  {
+    "rank": 72,
+    "name": "統一強漢基金",
+    "type": "Fund",
+    "score": 41.3,
+    "cumulative_pct": 25.95,
+    "stability_pct": 66.7,
+    "momentum_pct": -0.4,
+    "max_drawdown_pct": 5.33,
+    "sharpe_like": 0.632,
+    "monthly": [
+      7.62,
+      13.62,
+      7.47,
+      -3.15,
+      -5.33,
+      4.53
+    ]
+  },
+  {
+    "rank": 73,
+    "name": "街口標普高盛布蘭特原油ER單日正向2倍指數期貨基金",
+    "type": "Fund",
+    "score": 6.15,
+    "cumulative_pct": -7.28,
+    "stability_pct": 16.7,
+    "momentum_pct": -4.92,
+    "max_drawdown_pct": 9.09,
+    "sharpe_like": -0.085,
+    "monthly": [
+      20.36,
+      -9.09,
+      -3.74,
+      -2.62,
+      -5.57,
+      -4.27
+    ]
+  }
+]
