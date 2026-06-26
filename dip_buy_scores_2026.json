@@ -1,0 +1,62 @@
+{
+  "as_of": "2026-06-25",
+  "ranking": [
+    {
+      "rank": 1,
+      "name": "野村鴻運基金",
+      "sector": "台股一般",
+      "score": 100.0,
+      "short_term_pct": 37.81,
+      "short_term_basis": "近1月",
+      "momentum_3m_pct": 66.18,
+      "worst_month_pct": -0.0,
+      "stability_pct": 100.0,
+      "monthly_2026": [
+        16.48,
+        13.52,
+        0.03,
+        46.35,
+        5.87
+      ],
+      "source": "MoneyDJ 績效表 ac0001 (2026)"
+    },
+    {
+      "rank": 2,
+      "name": "安聯台灣科技基金",
+      "sector": "科技",
+      "score": 46.7,
+      "short_term_pct": 17.65,
+      "short_term_basis": "上月",
+      "momentum_3m_pct": 63.03,
+      "worst_month_pct": -1.37,
+      "stability_pct": 75.0,
+      "monthly_2026": [
+        null,
+        9.48,
+        -1.37,
+        40.5,
+        17.65
+      ],
+      "source": "MoneyDJ 績效表 acdd04 (2026)"
+    },
+    {
+      "rank": 3,
+      "name": "復華高成長基金",
+      "sector": "成長股",
+      "score": 30.6,
+      "short_term_pct": 25.94,
+      "short_term_basis": "近1月",
+      "momentum_3m_pct": 54.82,
+      "worst_month_pct": -7.48,
+      "stability_pct": 75.0,
+      "monthly_2026": [
+        9.66,
+        8.88,
+        -7.48,
+        48.92,
+        null
+      ],
+      "source": "MoneyDJ 績效表 acfh03 (2026)"
+    }
+  ]
+}
