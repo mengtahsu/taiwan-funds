@@ -25,33 +25,24 @@ import csv
 import json
 import sys
 
-DATA_AS_OF = "2026-06-25"   # 手上月報酬資料的基準日（5月底完整，6月為盤中估計）
+DATA_FILE = "funds_data.json"   # 基金資料來源（由 fetch_funds.py 每日更新）
 
-# ──────────────────────────────────────────────────────────────────────────
-# 2026 年實際月報酬資料（%）。來源：公開基金績效搜尋，已於上方說明。
-# m2026 = [1月, 2月, 3月, 4月, 5月]   （6月尚未結束，不納入月報酬，另用近期動能處理）
-# r1m / r3m / r1y = 近1月 / 近3月 / 近1年 滾動報酬（若搜尋到才填，否則 None）
-# ──────────────────────────────────────────────────────────────────────────
-FUNDS = [
-    {
-        "name": "安聯台灣科技基金", "type": "Fund", "sector": "科技",
-        "m2026": [None, 9.48, -1.37, 40.50, 17.65],
-        "r2w": None, "r1m": None, "r3m": None, "r1y": None,
-        "src": "MoneyDJ 績效表 acdd04 (2026)",
-    },
-    {
-        "name": "野村鴻運基金", "type": "Fund", "sector": "台股一般",
-        "m2026": [16.48, 13.52, 0.03, 46.35, 5.87],
-        "r2w": None, "r1m": 37.81, "r3m": 66.18, "r1y": 326.88,
-        "src": "MoneyDJ 績效表 ac0001 (2026)",
-    },
-    {
-        "name": "復華高成長基金", "type": "Fund", "sector": "成長股",
-        "m2026": [9.66, 8.88, -7.48, 48.92, None],
-        "r2w": None, "r1m": 25.94, "r3m": 54.82, "r1y": 220.35,
-        "src": "MoneyDJ 績效表 acfh03 (2026)",
-    },
-]
+
+def load_data(path=DATA_FILE):
+    """讀取 funds_data.json：演算法與資料分離，資料每天被 CI 更新。"""
+    with open(path, encoding="utf-8") as fp:
+        d = json.load(fp)
+    funds = []
+    for f in d["funds"]:
+        funds.append({
+            "name": f["name"], "type": f.get("type", "Fund"),
+            "sector": f.get("sector", ""),
+            "m2026": f.get("m2026", [None] * 5),
+            "r2w": f.get("r2w"), "r1m": f.get("r1m"),
+            "r3m": f.get("r3m"), "r1y": f.get("r1y"),
+            "src": f.get("code", "—"),
+        })
+    return d.get("as_of", "—"), funds
 
 
 # ──────────────────────────────────────────────────────────────────────────
@@ -93,16 +84,16 @@ def load_csv(path):
 # ──────────────────────────────────────────────────────────────────────────
 # 台股最近很敏感、兩週內就能變天，所以「最近的表現」最重要。
 # 大跌日要買的基金，理想條件與權重：
-#   1. 短期動能 40%  ← 近2週/近1月，最新最重要（最近表現好＝強勢沒被打趴）
-#   2. 防禦力   25%  ← 最糟單月跌幅，大跌日要能扛
-#   3. 中期趨勢 20%  ← 近3個月，確認不是曇花一現
-#   4. 穩定度   15%  ← 2026 正報酬月份比例
+#   1. 短期動能 50%  ← 近2週/近1月，最新最重要（追強勢：最近還在漲的優先）
+#   2. 中期趨勢 20%  ← 近3個月，確認不是曇花一現
+#   3. 防禦力   20%  ← 最糟單月跌幅，大跌日要能扛
+#   4. 穩定度   10%  ← 2026 正報酬月份比例
 #
 #  ⚠️ 真正的「近2週」基金報酬在被封鎖的資料站後面，這裡 r2w 多半是 None，
 #     演算法會自動退回用 r1m（近1月滾動報酬）當短期代理。
 #     若你有近2週數字，填進 r2w 即可，它會優先採用。
 # ──────────────────────────────────────────────────────────────────────────
-W_SHORT, W_DEFENSE, W_TREND, W_STABLE = 0.40, 0.25, 0.20, 0.15
+W_SHORT, W_TREND, W_DEFENSE, W_STABLE = 0.50, 0.20, 0.20, 0.10
 
 
 def months(f):
@@ -187,9 +178,10 @@ def score_all(funds):
 
 
 def main():
-    funds = FUNDS
     if len(sys.argv) > 1:                      # 可選：python dip_buy_2026.py funds.csv
-        funds = load_csv(sys.argv[1])
+        as_of, funds = "(CSV)", load_csv(sys.argv[1])
+    else:                                       # 預設讀 funds_data.json（每日更新）
+        as_of, funds = load_data()
 
     ranked = score_all(funds)
 
@@ -197,17 +189,17 @@ def main():
     print("╔══════════════════════════════════════════════════════════════╗")
     print("║   台灣基金「大跌日逢低買進」分析  ·  2026                       ║")
     print("╚══════════════════════════════════════════════════════════════╝")
-    print(f"  資料基準日：{DATA_AS_OF}   涵蓋 {len(funds)} 檔主流台股基金")
+    print(f"  資料基準日：{as_of}   涵蓋 {len(funds)} 檔基金")
     print("  情境：今天台股大跌，要在今天低點申購 1~2 筆")
     print("  ⚠️ 過去績效不代表未來，僅供參考，非投資建議")
-    print("  權重：短期動能40% + 防禦25% + 中期趨勢20% + 穩定15%（短期最重要）")
+    print("  權重：短期動能50% + 中期趨勢20% + 防禦20% + 穩定10%（追強勢動能）")
     print("─" * 70)
     print(f"{'名次':<4}{'基金':<16}{'評分':>6}{'短期動能':>11}{'最糟月':>9}{'近3月':>9}{'穩定':>7}")
     print("─" * 70)
     for i, m in enumerate(ranked, 1):
         f = m["f"]
         defs = f"-{m['def']:.1f}%" if m["def"] > 0 else "未跌"
-        short = f"+{m['short']:.1f}%({m['short_src']})"
+        short = f"{m['short']:+.1f}%({m['short_src']})"
         print(f"#{i:<3}{f['name']:<16}{m['score']:>6}{short:>13}{defs:>9}{m['mom']:>8.1f}%{m['stab']:>6.0f}%")
     print("─" * 70)
 
@@ -235,7 +227,7 @@ def main():
         "source": m["f"]["src"],
     } for i, m in enumerate(ranked, 1)]
     with open("dip_buy_scores_2026.json", "w", encoding="utf-8") as fp:
-        json.dump({"as_of": DATA_AS_OF, "ranking": out}, fp,
+        json.dump({"as_of": as_of, "ranking": out}, fp,
                   ensure_ascii=False, indent=2)
     print("📄 完整結果已存：dip_buy_scores_2026.json")
     print()

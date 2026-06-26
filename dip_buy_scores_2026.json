@@ -18,13 +18,13 @@
         46.35,
         5.87
       ],
-      "source": "MoneyDJ 績效表 ac0001 (2026)"
+      "source": "AC0001"
     },
     {
       "rank": 2,
       "name": "安聯台灣科技基金",
       "sector": "科技",
-      "score": 46.7,
+      "score": 70.2,
       "short_term_pct": 17.65,
       "short_term_basis": "上月",
       "momentum_3m_pct": 63.03,
@@ -37,13 +37,32 @@
         40.5,
         17.65
       ],
-      "source": "MoneyDJ 績效表 acdd04 (2026)"
+      "source": "ACDD04"
     },
     {
       "rank": 3,
+      "name": "統一奔騰基金",
+      "sector": "台股一般",
+      "score": 69.9,
+      "short_term_pct": 13.1,
+      "short_term_basis": "上月",
+      "momentum_3m_pct": 60.49,
+      "worst_month_pct": -0.0,
+      "stability_pct": 100.0,
+      "monthly_2026": [
+        2.87,
+        13.9,
+        1.5,
+        48.62,
+        13.1
+      ],
+      "source": "ACPS10"
+    },
+    {
+      "rank": 4,
       "name": "復華高成長基金",
       "sector": "成長股",
-      "score": 30.6,
+      "score": 62.6,
       "short_term_pct": 25.94,
       "short_term_basis": "近1月",
       "momentum_3m_pct": 54.82,
@@ -56,7 +75,26 @@
         48.92,
         null
       ],
-      "source": "MoneyDJ 績效表 acfh03 (2026)"
+      "source": "ACFH03"
+    },
+    {
+      "rank": 5,
+      "name": "安聯台灣大壩基金-A",
+      "sector": "台股一般",
+      "score": 13.9,
+      "short_term_pct": -5.98,
+      "short_term_basis": "上月",
+      "momentum_3m_pct": 4.26,
+      "worst_month_pct": -5.98,
+      "stability_pct": 80.0,
+      "monthly_2026": [
+        16.52,
+        10.62,
+        0.1,
+        10.78,
+        -5.98
+      ],
+      "source": "ACDD01"
     }
   ]
 }
